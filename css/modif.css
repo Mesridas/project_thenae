@@ -1,0 +1,82 @@
+body{
+    /* background: #e6f5f7; */
+}
+#galery{
+   background: #e6f5f7; 
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/*Nav bar*/
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Landing section image */
+
+header{
+    height: 100vh;
+}
+
+header.masthead{
+    background: -webkit-gradient(linear,left bottom,left top,from(#ffffff),to(#17a2b8));   
+}
+header.masthead .bg-circle{
+    background: linear-gradient(0deg,#0062ccd4 0,#00ccb266 100%);
+}
+header.masthead .bg-circle-1{
+    height: 80rem;
+    width: 88rem;
+}
+
+/* Formulaire de contact  */
+    /* Bouton icone form contact  */
+    .contact100-btn-show{
+        position: absolute;
+    }
+
+    .container-contact100{
+        min-height: 50vh;
+    }
+
+/* Gallerie photo */
+    /* Disposition des thumb img */
+    .img-thumbnail{
+        width: 25%;
+        margin: 10px;
+        /* max-height: 300px; */
+    }
+    /* Disposition image cachées */
+    .unsetgallery{
+        display: none;
+    }
+
+/* Footer  */
+
+.socialicon {
+    padding: 10px;
+    font-size: 15px;
+    width: 2rem;
+    text-align: center;
+    text-decoration: none;
+    /* margin: 5px 2px; */
+    border-radius: 100%;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .footeralign{
+      display: inline-block;
+  }
