@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 class HomeController {
 
@@ -15,6 +15,15 @@ class HomeController {
             throw Exception($e->getMessage(), 0, $e);
 
         }
+    }
+        
+    public function index(){
+
+      self::landing();
+      self::section();
+      self::galerie();
+      self::carousel();
+
     }
 
     private function landing(){
@@ -74,6 +83,8 @@ class HomeController {
         try{
 
             $this->_model = new CarouselsModel;
+
+            
             $datas = $this->_model->readVisible();
             $carousels = [];
 
@@ -94,15 +105,7 @@ class HomeController {
     private function form(){
 
     }
-    
-    public function index(){
 
-      self::landing();
-      self::section();
-      self::galerie();
-      self::carousel();
-
-    }
 
 
 

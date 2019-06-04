@@ -51,7 +51,7 @@
                       }
                 
                       foreach($array as $carousel) {
-                        echo '<a href="img/photo_thenae//'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae//'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
+                        echo '<a href="img/photo_thenae/pochette/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/pochette/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
                       }
                       echo '</div>';
                   }
