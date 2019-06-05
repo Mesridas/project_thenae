@@ -61,3 +61,27 @@ INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_locatio
 
 INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (12, "Des sacs à main", "Sac à main bleu/multicolor", "img-sacamain-sac12", 1, "sac12");
 
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (13, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "01");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (14, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "02");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (15, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "03");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (16, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "04");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (17, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "05");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (18, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "06");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (19, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "07");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (20, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "08");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (21, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "09");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (22, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "10");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (23, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "11");
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title_carousel`, `car_title`, `car_location`, `car_type_img`, `car_image`) VALUES (24, "Des pochettes", "Fabrication Thénae Créations", "pochettes", 1, "12");
+

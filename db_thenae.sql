@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `CUSTOMERS`(
     `cus_id` INT(11) NOT NULL AUTO_INCREMENT,
     `cus_name` VARCHAR(255) NOT NULL,
     `cus_email` VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`cus_id`),  
+    PRIMARY KEY (`cus_id`)  
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
 

@@ -8,9 +8,7 @@
 
 
 ############ ROUTEUR ##############
-
-#Landing
-  $ctrl = 'LandingController';
+  $ctrl = 'HomeController';
   if(isset($_GET['ctrl'])) {
     $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
   }
@@ -64,118 +62,173 @@
     header('Location:500');
     exit;
   }
+// #Landing
+//   $ctrl = 'LandingController';
+//   if(isset($_GET['ctrl'])) {
+//     $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
+//   }
 
-#Section
-  $ctrl = 'SectionController';
-  if(isset($_GET['ctrl'])) {
-    $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
-  }
+//   $method = 'index';
+//   if(isset($_GET['action'])) {
+//     $method = $_GET['action'];
+//   }
 
-  $method = 'index';
-  if(isset($_GET['action'])) {
-    $method = $_GET['action'];
-  }
-
-  try {
+//   try {
     
-    if(class_exists($ctrl)) {
-      $controller = new $ctrl;
+//     if(class_exists($ctrl)) {
+//       $controller = new $ctrl;
 
-      # si je reçois un formulaire (creation[data] ou mise a jour[id+data])
-      if(!empty($_POST)) {
+//       # si je reçois un formulaire (creation[data] ou mise a jour[id+data])
+//       if(!empty($_POST)) {
 
-        if(method_exists($controller, $method)) {
+//         if(method_exists($controller, $method)) {
 
-          if(!empty($_GET['id'])) {
-            $controller->$method($_GET['id'], $_POST);
-          } else {
-            $controller->$method($_POST);
-          }
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id'], $_POST);
+//           } else {
+//             $controller->$method($_POST);
+//           }
 
-        } else {
-          header('Location: 1');
-          exit;
-        }
+//         } else {
+//           header('Location: 1');
+//           exit;
+//         }
 
-      } else {
-        # sinon je gere index, show , delete
-        if(method_exists($controller, $method)) {
+//       } else {
+//         # sinon je gere index, show , delete
+//         if(method_exists($controller, $method)) {
 
-          if(!empty($_GET['id'])) {
-            $controller->$method($_GET['id']);
-          } else {
-            $controller->$method();
-          }
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id']);
+//           } else {
+//             $controller->$method();
+//           }
 
-        } else {
-          header('Location: 2');
-          exit;
-        }
-      }
-    } else {
-      header('Location: 3');
-      exit;
-    }
-  } catch(Exception $e) {
-    header('Location:500');
-    exit;
-  }
+//         } else {
+//           header('Location: 2');
+//           exit;
+//         }
+//       }
+//     } else {
+//       header('Location: 3');
+//       exit;
+//     }
+//   } catch(Exception $e) {
+//     header('Location:500');
+//     exit;
+//   }
 
-#Gallery 
-  $ctrl = 'GalleryController';
-  if(isset($_GET['ctrl'])) {
-    $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
-  }
+// #Section
+//   $ctrl = 'SectionController';
+//   if(isset($_GET['ctrl'])) {
+//     $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
+//   }
 
-  $method = 'index';
-  if(isset($_GET['action'])) {
-    $method = $_GET['action'];
-  }
+//   $method = 'index';
+//   if(isset($_GET['action'])) {
+//     $method = $_GET['action'];
+//   }
 
-  try {
+//   try {
     
-    if(class_exists($ctrl)) {
-      $controller = new $ctrl;
+//     if(class_exists($ctrl)) {
+//       $controller = new $ctrl;
 
-      # si je reçois un formulaire (creation[data] ou mise a jour[id+data])
-      if(!empty($_POST)) {
+//       # si je reçois un formulaire (creation[data] ou mise a jour[id+data])
+//       if(!empty($_POST)) {
 
-        if(method_exists($controller, $method)) {
+//         if(method_exists($controller, $method)) {
 
-          if(!empty($_GET['id'])) {
-            $controller->$method($_GET['id'], $_POST);
-          } else {
-            $controller->$method($_POST);
-          }
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id'], $_POST);
+//           } else {
+//             $controller->$method($_POST);
+//           }
 
-        } else {
-          header('Location: 1');
-          exit;
-        }
+//         } else {
+//           header('Location: 1');
+//           exit;
+//         }
 
-      } else {
-        # sinon je gere index, show , delete
-        if(method_exists($controller, $method)) {
+//       } else {
+//         # sinon je gere index, show , delete
+//         if(method_exists($controller, $method)) {
 
-          if(!empty($_GET['id'])) {
-            $controller->$method($_GET['id']);
-          } else {
-            $controller->$method();
-          }
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id']);
+//           } else {
+//             $controller->$method();
+//           }
 
-        } else {
-          header('Location: 2');
-          exit;
-        }
-      }
-    } else {
-      header('Location: 3');
-      exit;
-    }
-  } catch(Exception $e) {
-    header('Location:500');
-    exit;
-  }
+//         } else {
+//           header('Location: 2');
+//           exit;
+//         }
+//       }
+//     } else {
+//       header('Location: 3');
+//       exit;
+//     }
+//   } catch(Exception $e) {
+//     header('Location:500');
+//     exit;
+//   }
+
+// #Gallery 
+//   $ctrl = 'GalleryController';
+//   if(isset($_GET['ctrl'])) {
+//     $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
+//   }
+
+//   $method = 'index';
+//   if(isset($_GET['action'])) {
+//     $method = $_GET['action'];
+//   }
+
+//   try {
+    
+//     if(class_exists($ctrl)) {
+//       $controller = new $ctrl;
+
+//       # si je reçois un formulaire (creation[data] ou mise a jour[id+data])
+//       if(!empty($_POST)) {
+
+//         if(method_exists($controller, $method)) {
+
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id'], $_POST);
+//           } else {
+//             $controller->$method($_POST);
+//           }
+
+//         } else {
+//           header('Location: 1');
+//           exit;
+//         }
+
+//       } else {
+//         # sinon je gere index, show , delete
+//         if(method_exists($controller, $method)) {
+
+//           if(!empty($_GET['id'])) {
+//             $controller->$method($_GET['id']);
+//           } else {
+//             $controller->$method();
+//           }
+
+//         } else {
+//           header('Location: 2');
+//           exit;
+//         }
+//       }
+//     } else {
+//       header('Location: 3');
+//       exit;
+//     }
+//   } catch(Exception $e) {
+//     header('Location:500');
+//     exit;
+//   }
 
 
 
