@@ -1,3 +1,4 @@
+
 CREATE DATABASE IF NOT EXISTS `thenae_creations` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 
@@ -7,8 +8,6 @@ USE `thenae_creations`;
 DROP TABLE IF EXISTS `ROLES`;
 CREATE TABLE 
 IF NOT EXISTS `ROLES`(
-
-    
     `rol_id` INT(11) NOT NULL AUTO_INCREMENT,
     `rol_name` VARCHAR(50) NOT NULL,
     `rol_power` INT(3) NOT NULL,
@@ -64,6 +63,12 @@ CREATE TABLE IF NOT EXISTS `ORDERS`(
     KEY(`ord_customer_fk`)
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `CATEGORIES`;
+CREATE TABLE IF NOT EXISTS `CATEGORIES`(
+    `cat_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `cat_name` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`cat_id`)    
+)ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `CAROUSEL`;
 CREATE TABLE IF NOT EXISTS `CAROUSEL`(
@@ -73,7 +78,9 @@ CREATE TABLE IF NOT EXISTS `CAROUSEL`(
     `car_location` VARCHAR(255) NOT NULL,
     `car_type_img` BOOL NOT NULL,
     `car_image` VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`car_id`)    
+    `car_categorie_id` INT(11) NOT NULL,
+    PRIMARY KEY (`car_id`),
+    KEY (`car_categorie_id`)    
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -201,6 +208,8 @@ ALTER TABLE `USERS` ADD CONSTRAINT `users_roles_fk` FOREIGN KEY (`use_role_fk`) 
 ALTER TABLE `USERS` ADD CONSTRAINT `users_medias_fk` FOREIGN KEY (`use_picture_fk`) REFERENCES `thenae_creations`.`MEDIAS`(`med_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 ALTER TABLE `EVENT` ADD CONSTRAINT  `event_users_fk`FOREIGN KEY (`eve_user_fk`) REFERENCES `thenae_creations`.`USERS`(`use_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+ALTER TABLE `CAROUSEL` ADD CONSTRAINT  `carousel_categorie_fk` FOREIGN KEY (`car_categorie_id`) REFERENCES `thenae_creations`.`CATEGORIES`(`cat_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 ALTER TABLE `manage` ADD CONSTRAINT `manage_orders_fk` FOREIGN KEY (`man_ord_id`) REFERENCES `thenae_creations`.`ORDERS`(`ord_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
