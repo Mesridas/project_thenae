@@ -4,7 +4,7 @@ class Carousels {
 
   
     private $_id;
-    private $_title_carousel;
+    private $_title_carousel; // titre de la catégorie : sac à mains, pochettes, ...
     private $_title; // data-title
     private $_location; // data-lightbox
     private $_type_img; // set = 1 ou unset = 0

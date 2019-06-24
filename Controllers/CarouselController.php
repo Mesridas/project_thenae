@@ -21,13 +21,17 @@ class CarouselController {
     public function index(){
         try{
 
-            $datas = $this->_model->readAll();
+            $datas = $this->_model->readVisible();
             $carousels = [];
 
             if(count($datas) > 0 ){
+                #Je crée un tableau qui contiendra un tableau pour chaque titre (catégorie de carousel) qui lui même contient toutes les images associés à ce titre (catégorie).
                 foreach ($datas as $data) {
-                $carousels[] = new Carousels($data);
+
+                $carousels[$data['title_carousel']][] = new Carousels($data);
+               
                 }
+
             }
 
         include './Views/Carousel/index.php';
