@@ -10,9 +10,3 @@
             }
             ?>
 
- <!-- A SUPPRIMER LORS AJOUT CAROUSEL  -->
- </div>
- </div>
- </div>
- </section>
- <!-- A SUPPRIMER  -->

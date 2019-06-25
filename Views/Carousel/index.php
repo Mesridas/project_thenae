@@ -1,73 +1,49 @@
-            <!-- Gallerie avec présentation plus détaillés des produits -->
-            <h2 class="display-4 m-b-80 m-t-50 p-t-80" >Plus en détails :</h2>
-              <!-- Slider sac à main -->
-            <h3 class="m-l-50 my-5 text-center"><?php $carousels['_title_carousel']?></h3>
+<!-- Gallerie avec présentation plus détaillés des produits -->
+  <h2 class="display-4 m-b-80 m-t-50 p-t-80" >Plus en détails :</h2>
+<?php 
+  foreach($carousels as $key => $value){
+?>
+    <h3 class="m-l-50 my-5 text-center"><?php echo $value[0]->getCategorie_name() ?></h3>
+      <section class="container text-center"> 
+        <div id="<?php echo $value[0]->getCategorie_name() ?>" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+<?php
+              $i = 0;
+              foreach(array_chunk($value, 3, true) as $array){  // Je sépare en 3 pour l'affichage de mon carousel par 3
 
-            <section class="container text-center"> 
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <?php 
-                  $i = 0;
-                  echo '<pre>';var_dump($carousels);'</pre>';
-                  foreach (array_chunk($carousels, 3, true) as $array) {         
-
-                      if($i == 0){
-                        echo '<div class="carousel-item active">';  
-                        $i++;
-                      }else{
-                        echo '<div class="carousel-item col-lg-12">';  
-                      }
-                
-                      foreach($array as $carousel) {
-                        echo '<a href="img/photo_thenae/sacamain/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/sacamain/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
-                      }
-                      echo '</div>';
-                  }
-                  // echo '<pre>';var_dump($array);'</pre>';
-                  ?>   
-
-                </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
+                if($i == 0){
+                  echo '<div class="carousel-item active">';  
+                  $i++;
+                }else{
+                  echo '<div class="carousel-item col-lg-12">';  
+                }
                     
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-              </div>
-            </section>
-              <!-- Slider pochettes  -->
-            <h3 class="m-l-50 my-5 text-center">Des pochettes</h3>
+                foreach($array as $carousel){ // Le dossier de mes images est l'id de mes categories
+                  echo '<a href="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
+                }
 
-            <section class="container text-center"> 
-                <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                   <?php 
-                  $i = 0;
-                  foreach (array_chunk($carousels, 3, true) as $array) {                    
-                      if($i == 0){
-                        echo '<div class="carousel-item active">';  
-                        $i++;
-                      }else{
-                        echo '<div class="carousel-item col-lg-12">';  
-                      }
-                
-                      foreach($array as $carousel) {
-                        echo '<a href="img/photo_thenae/pochette/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/pochette/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
-                      }
-                      echo '</div>';
-                  }
-                  ?>   
+                echo '</div>';
+                      
+               }  
+              
+?>   
+            </div>
+            <a class="carousel-control-prev" href="#<?php echo $value[0]->getCategorie_name() ?>" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            
+            <a class="carousel-control-next" href="#<?php echo $value[0]->getCategorie_name() ?>" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+      </section>
 
-                </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-              </div>
-            </section>
+<?php 
+  } 
+?>
+ <!-- FERME LA SECTION AVEC GALLERY -->
+ </div>
+ </div>
+ </div>
+ </section>

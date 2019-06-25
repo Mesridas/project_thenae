@@ -4,11 +4,12 @@ class Carousels {
 
   
     private $_id;
-    private $_title_carousel; // titre de la catégorie : sac à mains, pochettes, ...
     private $_title; // data-title
     private $_location; // data-lightbox
     private $_type_img; // set = 1 ou unset = 0
     private $_image; // nom de l'image
+    private $_categorie_id;// 
+    private $_categorie_name;// nom de la categorie
   
   
     #####//////##### MAGIC METHOD #####//////##### 
@@ -22,11 +23,7 @@ class Carousels {
     public function getId(){
       return $this->_id;
     }
-  
-    public function getTitle_carousel(){
-      return $this->_title_carousel;
-    }
-  
+
     public function getTitle(){
       return $this->_title;
     }
@@ -43,16 +40,19 @@ class Carousels {
     public function getImage(){
       return $this->_image;
     }
-  
+    
+    public function getCategorie_id(){
+      return $this->_categorie_id;
+    }
+
+    public function getCategorie_name(){
+      return $this->_categorie_name;
+    }
   
     #####//////##### SETTERS #####//////##### 
   
     public function setId($id){
       $this->_id = $id;
-      return $this;
-    }
-    public function setTitle_carousel($titlec){
-      $this->_title_carousel = $titlec;
       return $this;
     }
     public function setTitle($title){
@@ -72,6 +72,14 @@ class Carousels {
     public function setImage($picture){
         $this->_image = $picture;
         return $this;
+    }
+    public function setCategorie_id($categorie){
+      $this->_categorie_id = $categorie;
+      return $this;
+    }
+    public function setCategorie_name($categorieName){
+      $this->_categorie_name = $categorieName;
+      return $this;
     }
   
   

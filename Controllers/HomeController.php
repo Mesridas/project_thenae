@@ -85,15 +85,18 @@ class HomeController {
             $this->_model = new CarouselsModel;
 
             
-            $datas = $this->_model->readVisible();
+            $datas = $this->_model->readAll();
             $carousels = [];
 
             if(count($datas) > 0 ){
+
                 foreach ($datas as $data) {
-                 $carousels[] = new Carousels($data);
+
+                $carousels[$data['cat_id']][] = new Carousels($data);
+                
                 }
             }
-
+  
             include './Views/Carousel/index.php';
 
         }catch(PDOException $e){
