@@ -42,8 +42,23 @@
 <?php 
   } 
 ?>
+
+
+<!-- Galerie caché qui s'affiche lorsqu'on clique sur les photos -->
+  <div class="unsetgallery"> 
+  <?php 
+      foreach($hidden as $hide){
+
+        echo '<a href="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg" data-lightbox="'.$hide->getLocation().'" data-title="'.$hide->getTitle().'"><img src="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg"></a>';
+        
+      }
+  ?>
+  <!-- </div> -->
+
+
+
  <!-- FERME LA SECTION AVEC GALLERY -->
- </div>
- </div>
- </div>
- </section>
+      </div>
+    </div>
+  </div>
+</section>

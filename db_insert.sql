@@ -86,3 +86,56 @@ INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `c
 
 INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (24, "Fabrication Thénae Créations", "pochettes", 1, "12", 2);
 
+
+
+
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (25, "Sac à main jaune", "img-sacamain-sac1", 0, "sac1_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (26, "Sac à main jaune", "img-sacamain-sac1", 0, "sac1_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (27, "Sac à main jaune", "img-sacamain-sac1", 0, "sac1_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (28, "Sac à main beige et rouge", "img-sacamain-sac2", 0, "sac2_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (29, "Sac à main beige et rouge", "img-sacamain-sac2", 0, "sac2_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (30, "Sac à main beige et rouge", "img-sacamain-sac2", 0, "sac2_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (31, "Sac à main noir et gris", "img-sacamain-sac3", 0, "sac3_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (32, "Sac à main noir et gris", "img-sacamain-sac3", 0, "sac3_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (33, "Sac à main noir et gris", "img-sacamain-sac3", 0, "sac3_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (34, "Sac à main beige et bleu", "img-sacamain-sac4", 0, "sac4_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (35, "Sac à main beige et bleu", "img-sacamain-sac4", 0, "sac4_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (36, "Sac à main beige et bleu", "img-sacamain-sac4", 0, "sac4_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (37, "Sac à main motif léopard", "img-sacamain-sac5", 0, "sac5_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (38, "Sac à main motif léopard", "img-sacamain-sac5", 0, "sac5_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (39, "Sac à main motif léopard", "img-sacamain-sac5", 0, "sac5_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (40, "Sac à main noir", "img-sacamain-sac6", 0, "sac6_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (41, "Sac à main noir", "img-sacamain-sac6", 0, "sac6_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (42, "Sac à main noir", "img-sacamain-sac6", 0, "sac6_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (43, "Sac à main gris", "img-sacamain-sac7", 0, "sac7_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (44, "Sac à main gris", "img-sacamain-sac7", 0, "sac7_2", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (45, "Sac à main gris", "img-sacamain-sac8", 0, "sac8_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (46, "Sac à main gris", "img-sacamain-sac8", 0, "sac8_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (47, "Sac à main gris", "img-sacamain-sac8", 0, "sac8_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (48, "Sac à main jean", "img-sacamain-sac9", 0, "sac9_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (49, "Sac à main jean", "img-sacamain-sac9", 0, "sac9_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (50, "Sac à main jean", "img-sacamain-sac9", 0, "sac9_3", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (51, "Sac à main jean", "img-sacamain-sac9", 0, "sac9_4", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (52, "Sac à main jean", "img-sacamain-sac9", 0, "sac9_5", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (53, "Sac à main blanc/beige/rouge", "img-sacamain-sac10", 0, "sac10_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (54, "Sac à main blanc/beige/rouge", "img-sacamain-sac10", 0, "sac10_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (55, "Sac à main blanc/beige/rouge", "img-sacamain-sac10", 0, "sac10_3", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (56, "Sac à main beige et gris", "img-sacamain-sac11", 0, "sac11_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (57, "Sac à main beige et gris", "img-sacamain-sac11", 0, "sac11_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (58, "Sac à main beige et gris", "img-sacamain-sac11", 0, "sac11_3", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (59, "Sac à main beige et gris", "img-sacamain-sac11", 0, "sac11_4", 1);
+
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (60, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_1", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (61, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_2", 1);
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (62, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_3", 1);
