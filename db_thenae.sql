@@ -102,10 +102,8 @@ CREATE TABLE IF NOT EXISTS `USERS`(
     `use_id` INT(11) NOT NULL AUTO_INCREMENT,
     `use_login` VARCHAR(155) NOT NULL,
     `use_pwd` VARCHAR(50) NOT NULL,
-    `use_role` INT(3) NOT NULL,
-    `use_picture` VARCHAR(255),
     `use_role_fk` INT(11) NOT NULL,
-    `use_picture_fk` INT(11) NOT NULL,
+    `use_picture_fk` INT(11) NULL,
     PRIMARY KEY (`use_id`),
     KEY(`use_role_fk`),    
     KEY(`use_picture_fk`)    

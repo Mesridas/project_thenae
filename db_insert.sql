@@ -139,3 +139,11 @@ INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `c
 INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (60, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_1", 1);
 INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (61, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_2", 1);
 INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (62, "Sac à main bleu/multicolor", "img-sacamain-sac12", 0, "sac12_3", 1);
+
+INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(1, 'Super Admin', 1);
+INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(2, 'Admin', 10);
+INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(3, 'Modérateur', 20);
+
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(1,'su', '1234', 1);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(2,'armelle', '1234', 2);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(3,'test', '1234', 3);

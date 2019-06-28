@@ -1,7 +1,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container text-center">
-        <a class="navbar-brand" href="#"><img src="img/logo2.png" alt="Logo" width="40" height="40"></a>
+        <a class="navbar-brand" href="index.php?ctrl=Login&action=index"><img src="img/logo2.png" alt="Logo" width="40" height="40"></a>
         <a href="https://www.facebook.com/Th%C3%A9na%C3%AB-Cr%C3%A9ations-318619488566497/" target="_blank" class="fa fa-facebook socialicon"></a>
         <a href="https://www.instagram.com/thenae_creations_/" target="_blank" class="fa fa-instagram socialicon"></a>
       <!-- </div>
