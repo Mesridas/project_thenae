@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 class HomeController {
 
@@ -12,7 +12,7 @@ class HomeController {
 
         }catch(PDOException $e){
 
-            throw Exception($e->getMessage(), 0, $e);
+            throw new Exception($e->getMessage(), 0, $e);
 
         }
     }

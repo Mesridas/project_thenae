@@ -50,12 +50,12 @@ class OrderController {
             }
             
 
-            // if($datas){
-            //     header('Location: ./index.php?ctrl=home&action=index&contact=success');
-            // }
-            // else{
-            //     header('Location: ./index.php?ctrl=home&action=index&contact=error');
-            // }
+            if($datas){
+                header('Location: ./index.php?ctrl=home&action=index&contact=success');
+            }
+            else{
+                header('Location: ./index.php?ctrl=home&action=index&contact=error');
+            }
     
           }catch(PDOException $e){
     

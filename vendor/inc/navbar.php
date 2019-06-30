@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-          <!-- <a class="navbar-brand" href="#"><img src="img/logo1.png" alt="Logo" width="100" height="100"></a> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container"></div>
           <a class="navbar-brand" href="#">Thénaë Créations</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -17,5 +16,5 @@
         </div>
 
       </div>
-    </nav>
+    </nav> -->
 

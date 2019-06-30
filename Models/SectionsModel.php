@@ -52,4 +52,39 @@
 
         }
 
+
+        public function add($request, $files){
+
+
+            try{
+
+                $query = 'INSERT INTO `SECTION`( `sec_image`, `sec_text`, `sec_title`) VALUES ( :img, :content, :title) ';
+
+                if(($this->_req = $this->getDb()->prepare($query)) !== false){
+
+                    if(
+                        $this->_req->bindValue('img', $files['name']) 
+                        && $this->_req->bindValue('content', $request['desc']) 
+                        && $this->_req->bindValue('title', $request['title']) 
+                    ){
+
+                        if($this->_req->execute()) {
+
+                            $res = $this->getDb()->lastInsertId();
+                            return $res;
+              
+                          }
+                    }
+                }
+
+                return false;
+
+            }catch(PDOException $e){
+
+                throw new Exception($e->getMessage(), 1 , $e);
+        
+            }
+
+        }
+
     }

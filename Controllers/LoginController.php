@@ -24,7 +24,7 @@ class LoginController {
 
 
 
-        if(isset($_GET['_err'])){
+      if(isset($_GET['_err'])){
 
         switch($_GET['_err']){
             case '403' :

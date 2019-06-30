@@ -1,13 +1,12 @@
 <?php
-    session_start();
+session_start();
 
   require_once 'config/ini.php';
   require_once 'vendor/autoload.php';
-
-  if(isset($ctrl) != 'LoginController'){
   require 'vendor/inc/header.php';
-  require 'vendor/inc/navbar.php';    
-  }
+  // require 'vendor/inc/navbar.php';    
+   
+
 
 
 ############ MESSAGES #############

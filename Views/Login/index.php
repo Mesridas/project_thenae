@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,7 +6,10 @@
     <title>Connexion | Thenae</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
+  </head> -->
+<?php   require 'vendor/inc/dash_head.php'; ?>  
+
+  
   <body class="has-background-light">
   <section class="hero is-fullheight">
     <div class="hero-body">
@@ -17,7 +20,7 @@
           <h1 class="title has-text-danger"><img src="img/logo.png" alt="Logo" width="250" height="250"></h1>
           <p class="subtitle has-text-dark">Connexion à l'espace d'administration</p>
           <div class="card is-shadowless">
-            <form action="index.php?ctrl=Login&action=welcome" method="POST" class="card-content">
+            <form action="index.php?ctrl=admin&action=check" method="POST" class="card-content">
               <div class="field has-text-left">
               <label class="label">Login</label>
                 <div class="control">
@@ -38,6 +41,7 @@
       </div>
     </div>
   </section>  
-  </body>
-</html>
+  <!-- </body>
+</html> -->
 
+<?php   require 'vendor/inc/dash_foot.php'; ?>  
