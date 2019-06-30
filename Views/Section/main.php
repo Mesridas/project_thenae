@@ -16,15 +16,26 @@
   </thead>
 
   <tbody>
-    <tr>
-      <th>1</th>
-      <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
-      </td>
-      <td>38</td>
-      <td>23</td>
-    </tr>
+  <?php 
+    foreach($sections as $section){
+  ?>
+        <tr>
+        <th><?php echo $section->getId()?></th>
+        <td><?php echo $section->getTitle()?></td>
+        <td><?php echo $section->getText()?></td>
+        <!-- <td>?php echo $section->getImage()?></td> -->
+        <td><figure class="image is-48x48">
+          <img src="img/sections/<?php echo $section->getImage() ;?>" alt="Placeholder image">
+        </figure></td>
+        <td><a href="index.php?ctrl=admin&action=editSection&id=<?php echo $section->getId()?>" class=" btn button-info ">Modifier cette section</a></td>
+        <td><a href="index.php?ctrl=section&action=edit&id=<?php echo $section->getId()?>" class=" btn button-info ">Modifier cette section</a></td>
+        <td><a href="index.php?ctrl=section&action=delete&id=<?php echo $section->getId()?>" class=" btn button-info ">Supprimer cette section</a></td>
+        </tr>
+    <?php 
+    }
+    ?> 
   </tbody>
-</table>
+</table>  
 </div>
 <br>
 <div class="container">

@@ -31,6 +31,11 @@ class AdminController {
 
     public function manageSection(){
         self::section();
+    
+    }
+
+    public function editSection($id){
+        self::edit($id);
     }
 
     private function landingConnection(){
@@ -150,15 +155,15 @@ class AdminController {
 
         try{
 
-            // $this->_model = new SectionsModel;
-            // $datas = $this->_model->readAll();
-            // $sections = [];
+            $this->_model = new SectionsModel;
+            $datas = $this->_model->readAll();
+            $sections = [];
 
-            // if(count($datas) > 0 ){
-            //     foreach ($datas as $data) {
-            //       $sections[] = new Sections($data);
-            //     }
-            // }
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $sections[] = new Sections($data);
+                }
+            }
 
             include './Views/Section/main.php';
 
@@ -169,7 +174,24 @@ class AdminController {
 
     }
 
+    private function edit($id){
 
+        try{
+            $this->_model = new SectionsModel;
+            $datas = $this->_model->readOne($id);
+
+            if(count($datas) > 0 ){
+            $section = new Sections($datas);
+            }
+            
+            include './Views/Section/edit.php';
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+        
+    }
 
 
 
