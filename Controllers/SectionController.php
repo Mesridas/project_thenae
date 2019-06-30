@@ -38,8 +38,6 @@ class SectionController {
     }
 
     public function add($request){
-// var_dump($request);
-var_dump($_FILES);
 
         if(!empty($_FILES) && !empty($request)){
 
@@ -72,9 +70,72 @@ var_dump($_FILES);
         }
     }
     
+    public function edit($id){
+ 
+        try{
+            
+            $datas = $this->_model->readOne($id);
 
+            if(count($datas) > 0 ){
+            $section = new Sections($datas);
+            }
+            
+            include './Views/Section/edit.php';
 
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
 
+    public function update($id, $request){
+       
+        try{
+            
+            $datas = $this->_model->readOne($id);
+
+            if(count($datas) > 0 ){
+            $section = new Sections($datas);
+            }
+
+            // if(empty($request['title'])){
+            //     $request['title']= $section->getTitle();
+            // }
+            // if(empty($request['desc'])){
+            //     $request['desc']= $section->getText();
+            // }
+            // if(empty($request['mon_image'])){
+            //     $request['mon_image']= $section->getImage();
+            // }
+
+            $edit = $this->_model->update($id, $request);
+            
+            
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
+
+    public function delete($id){
+
+        try{
+
+            $del = $this->_model->delete($id);
+    
+            if($del){
+            header('Location: ./index.php?ctrl=admin&action=manageSection');
+            }else{
+            header('Location: ./index.php?ctrl=admin&action=manageSection');
+            }            
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
 
 
 }
