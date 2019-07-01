@@ -6,7 +6,7 @@
           <div class="col-lg-12 order-lg-2 text-center">
             <?php 
             foreach($galleries as $gallery){
-              echo '<a href="img/'.$gallery->getImage().'" data-lightbox="'.$gallery->getData_lightbox().'" data-title="'.$gallery->getData_title().'"><img src="img/'.$gallery->getImage().'" class="img-thumbnail"></a>';
+              echo '<a href="img/'.$gallery->getImage().'" data-lightbox="'.$gallery->getData_lightbox().'" data-title="'.$gallery->getData_title().'"><img src="img/galeries/'.$gallery->getImage().'" class="img-thumbnail"></a>';
             }
             ?>
 

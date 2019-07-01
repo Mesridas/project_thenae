@@ -12,7 +12,7 @@
         </p>
         <ul class="menu-list">
           <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'Gallery_main' ? 'is-active' : '' ?>">Section - présentation </a></li>
-          <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes créations - Gallerie </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageGalerie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes créations - Galerie </a></li>
           <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Plus en détails - Carousels/Sliders </a></li>
           <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes demandes clients </a></li>
         </ul>

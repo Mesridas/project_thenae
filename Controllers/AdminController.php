@@ -34,6 +34,10 @@ class AdminController {
     
     }
 
+    public function manageGalerie(){
+        self::galerie();
+    }
+
     public function editSection($id){
         self::edit($id);
     }
@@ -182,6 +186,26 @@ class AdminController {
         
     }
 
+    private function galerie(){
+        try{
+
+            $this->_model = new GalleriesModel;
+            $datas = $this->_model->readAll();
+            $galeries = [];
+
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $galeries[] = new Galleries($data);
+                }
+            }
+
+            include './Views/Gallery/main.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
 
 
 
