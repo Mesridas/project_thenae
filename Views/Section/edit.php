@@ -31,7 +31,7 @@
 </div>
 <br>
 <div class="container">
-<h2>Ajouter une section : </h2>
+<h2>Modifier la section : </h2>
 <form method="POST" action="index.php?ctrl=section&action=update&id=<?php echo $section->getId()?>" class="control" enctype="multipart/form-data">
     <div class="field">
         <label for="title" class="label">Titre</label>
@@ -49,7 +49,7 @@
         <label for="mon_image" class="label">Veuillez ajouter une image à afficher</label>
         <div class="control">
             <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-            <input type="file" name="mon_image" id="mon_image">
+            <input type="file" name="mon_image_changed" id="mon_image">
         </div>
     </div>
     <div class="field">

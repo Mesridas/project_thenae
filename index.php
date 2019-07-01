@@ -51,11 +51,9 @@ session_start();
         if(method_exists($controller, $method)) {
 
           if(!empty($_GET['id'])) {
-            if(!empty($_FILES)){
-              $controller->$method($_GET['id'], $_POST, $_FILES);
-            }else{
+            
               $controller->$method($_GET['id'], $_POST); 
-            }        
+                   
           } else {
             $controller->$method($_POST);
           }

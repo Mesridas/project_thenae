@@ -85,59 +85,48 @@ class AdminController {
 
             $this->_model = new LoginModel;
             
-          }catch(PDOException $e){
-      
-            throw Exception($e->getMessage(), 0 , $e);
-      
-        }
-        extract($post);
+            extract($post);
 
-    // if(empty($_SESSION['thenae']['user'])){
+            if(empty($_SESSION[APP_TAG]['user'])){
 
-            if(!empty($login) && !empty($password)){
+                    if(!empty($login) && !empty($password)){
 
-                try{
+                            $userCheck = $this->_model->connexion($login, $password);
+                            
+                            if(($userCheck) !== false){
 
-                    $userCheck = $this->_model->connexion($login, $password);
+                                $user = new Login($userCheck);
 
-                    if(($userCheck) !== false){
-                    #Je récupére les info dont l'id du connecté
-                        $user = new Login($userCheck);
+                                $_SESSION[APP_TAG]['connected'] = serialize($user);
 
+                                if($user){
+                                    // header('Location: ./index.php?ctrl=admin&action=dashboard');
+                                    include './Views/Login/welcome.php';
+                                }else{
+                                header('Location: ./index.php?ctrl=admin&action=login');
+                                exit;
+                                }
+                            } 
+                    }else{
 
-                        $_SESSION['thenae']['user'] = serialize($user);
-
-                        if($user){
-                            // header('Location: ./index.php?ctrl=admin&action=dashboard');
-                            include './Views/Login/welcome.php';
-                        }else{
                         header('Location: ./index.php?ctrl=admin&action=login');
                         exit;
-                        }
-                    }   
+                        //  include './Views/Login/index.php';
+                    } 
 
-                }catch(PDOException $e){
-
-                    throw new Exception($e->getMessage(), 0 , $e);
-                }
             }else{
+                include './Views/Login/welcome.php';
+            }
 
-                header('Location: ./index.php?ctrl=admin&action=login');
-                
-                exit;
-                //  include './Views/Login/index.php';
-            }        
-        // }else{
-        // include './Views/Login/welcome.php';
-        // }
+        }catch(PDOException $e){
+      
+            throw new Exception($e->getMessage(), 0 , $e);
 
-
+        } 
 
     }
 
     private function mainMenu(){
-
-        // session_start();
     
         $page = 'Dashboard';
     

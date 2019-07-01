@@ -88,47 +88,44 @@ class SectionController {
         }
     }
 
-    public function update($id, $request, $files){
+    public function update($id, $request){
        
         try{
-            
-            $datas = $this->_model->readOne($id);
+            $files = $_FILES['mon_image_changed'];
 
-            if(count($datas) > 0 ){
-            $section = new Sections($datas);
+            if(empty($request['title'])){
+
+                $datas = $this->_model->readOne($id);
+
+                if(count($datas) > 0 ){
+                $section = new Sections($datas);
+                }
+
+                $request['title']= $section->getTitle();
             }
 
-            // if(empty($request['title'])){
-            //     $request['title']= $section->getTitle();
-            // }
-            // if(empty($request['desc'])){
-            //     $request['desc']= $section->getText();
-            // }
-            // if(empty($request['mon_image'])){
-            //     $request['mon_image']= $section->getImage();
-            // }
+            if(empty($request['desc'])){
 
-            if(!empty($files)){
+                $datas = $this->_model->readOne($id);
 
- 
-                $files = $_FILES['mon_image'];
-                // var_dump($files['error']);
-                $files['name'] = basename($files['name']);
-                $ext = strtolower(substr(strrchr($files['name'], '.'), 1) );
-                $allow_ext = array( 'jpg' , 'jpeg' , 'gif' , 'png'); 
-               var_dump($files);
-                // #Je stocke l'image dans le dossier
-                if(in_array($ext, $allow_ext)){
-                    $folder = "./img/sections";
-                    $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
-    
+                if(count($datas) > 0 ){
+                $section = new Sections($datas);
                 }
-            }else{
-                $files['name']=$section->getImage();
+                $request['desc']= $section->getText();
+            }
+
+            if(empty($files['mon_image_changed'])){
+
+                $datas = $this->_model->readOne($id);
+
+                if(count($datas) > 0 ){
+                $section = new Sections($datas);
+                }
+
+                $files['name']= $section->getImage();
             }
 
             $edit = $this->_model->update($id, $request,$files['name']);
-            
             
 
         }catch(PDOException $e){

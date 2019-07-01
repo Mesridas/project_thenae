@@ -111,7 +111,7 @@
               
                 if(($req = $this->getDb()->prepare($query))!==false) {
          
-                 if($req->bindValue('id', $id, PDO::PARAM_INT) && $req->bindValue('img', $files['name']) && $req->bindValue('txt', $request['desc']) && 
+                 if($req->bindValue('id', $id, PDO::PARAM_INT) && $req->bindValue('img', $files) && $req->bindValue('txt', $request['desc']) && 
                  $req->bindValue('title', $request['title'])) {
                        if($req->execute()) {
                          $res = $req->rowCount();

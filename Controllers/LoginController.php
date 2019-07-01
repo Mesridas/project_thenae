@@ -73,60 +73,60 @@ class LoginController {
 
   }
 
-  public function userConnect($post){
+  // public function userConnect($post){
 
-  extract($post);
+  // extract($post);
 
-      if(empty($_SESSION['thenae']['user'])){
+  //     if(empty($_SESSION['thenae']['user'])){
 
-        if(!empty($login) && !empty($password)) {
+  //       if(!empty($login) && !empty($password)) {
 
-          try{
+  //         try{
 
-            $userCheck = $this->_model->connexion($login, $password);
+  //           $userCheck = $this->_model->connexion($login, $password);
 
-            if(($userCheck) !== false){
-            #Je récupére les info dont l'id du connecté
-            $info = new Login($userCheck);
+  //           if(($userCheck) !== false){
+  //           #Je récupére les info dont l'id du connecté
+  //           $info = new Login($userCheck);
 
-            #j'instancie mon objet utilisateur pour avoir toutes ses infos 
-            $usermodel = new UsersModel;
-            #Je lui passe en paramètre son id (pour récupèrer ses infos)
-            $userDb = $usermodel->readOne($info->getId());
-            $user = new Users($userDb);
+  //           #j'instancie mon objet utilisateur pour avoir toutes ses infos 
+  //           $usermodel = new UsersModel;
+  //           #Je lui passe en paramètre son id (pour récupèrer ses infos)
+  //           $userDb = $usermodel->readOne($info->getId());
+  //           $user = new Users($userDb);
 
 
-            $_SESSION['thenae']['user'] = serialize($user);
+  //           $_SESSION['thenae']['user'] = serialize($user);
 
-            if($userDb){
-                include './Views/Login/welcome.php';
-              }
+  //           if($userDb){
+  //               include './Views/Login/welcome.php';
+  //             }
 
-            }else{
-              header('Location: ./index.php?ctrl=login&action=index');
-              exit;
+  //           }else{
+  //             header('Location: ./index.php?ctrl=login&action=index');
+  //             exit;
 
-            }
+  //           }
 
-          }catch(PDOException $e){
+  //         }catch(PDOException $e){
 
-          throw new Exception($e->getMessage(), 0 , $e);
+  //         throw new Exception($e->getMessage(), 0 , $e);
 
-          }  
+  //         }  
 
-      }else{
-            header('Location: ./index.php?ctrl=login&action=index');
+  //     }else{
+  //           header('Location: ./index.php?ctrl=login&action=index');
              
-            exit;
-            //  include './Views/Login/index.php';
-          }        
-      }else{
-        include './Views/Login/welcome.php';
-      }
+  //           exit;
+  //           //  include './Views/Login/index.php';
+  //         }        
+  //     }else{
+  //       include './Views/Login/welcome.php';
+  //     }
 
 
   
-  }
+  // }
 
 
 
