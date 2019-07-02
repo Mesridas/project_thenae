@@ -5,6 +5,8 @@ class OrderController {
     private $_model;
 
     public function __construct(){
+
+    public function __construct(){
 zézé
         try{
 
