@@ -42,6 +42,10 @@ class AdminController {
         self::edit($id);
     }
 
+    public function editGalerie(){
+        self::modify($id);
+    }
+
     private function landingConnection(){
         try{
 
@@ -185,6 +189,26 @@ class AdminController {
         }
         
     }
+
+    private function modify($id){
+
+        try{
+            $this->_model = new GalleriesModel;
+            $datas = $this->_model->readOne($id);
+
+            if(count($datas) > 0 ){
+            $section = new Galleries($datas);
+            }
+            
+            include './Views/Gallery/edit.php';
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
+
 
     private function galerie(){
         try{

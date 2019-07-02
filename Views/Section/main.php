@@ -28,7 +28,6 @@
           <img src="img/sections/<?php echo $section->getImage() ;?>" alt="Placeholder image">
         </figure></td>
         <td><a href="index.php?ctrl=admin&action=editSection&id=<?php echo $section->getId()?>" class=" btn button-info ">Modifier cette section</a></td>
-        <!-- <td><a href="index.php?ctrl=section&action=edit&id=<?php echo $section->getId()?>" class=" btn button-info ">Modifier cette section</a></td> -->
         <td><a href="index.php?ctrl=section&action=delete&id=<?php echo $section->getId()?>" class=" btn button-info ">Supprimer cette section</a></td>
         </tr>
     <?php 

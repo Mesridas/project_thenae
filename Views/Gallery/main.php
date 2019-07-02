@@ -25,7 +25,7 @@
           <img src="img/galeries/<?php echo $galerie->getImage() ;?>" alt="Placeholder image">
         </figure></td>
         <td><a href="index.php?ctrl=admin&action=editGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Modifier cette galerie</a></td>
-        <td><a href="index.php?ctrl=section&action=delete&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Supprimer cette galerie</a></td>
+        <td><a href="index.php?ctrl=admin&action=deleteGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Supprimer cette galerie</a></td>
         </tr>
     <?php 
     }

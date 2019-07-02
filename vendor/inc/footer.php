@@ -1,5 +1,4 @@
-
-  <!-- Footer -->
+<!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container text-center">
         <a class="navbar-brand" href="index.php?ctrl=admin&action=login"><img src="img/logo2.png" alt="Logo" width="40" height="40"></a>

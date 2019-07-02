@@ -83,6 +83,7 @@ session_start();
       exit;
     }
   } catch(Exception $e) {
+    
     header('Location: 500');
     exit;
   }
