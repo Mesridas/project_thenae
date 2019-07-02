@@ -114,7 +114,7 @@ class SectionController {
                 $request['desc']= $section->getText();
             }
 
-            if(empty($files)){
+            if(empty($files['mon_image_changed'])){
 
                 $datas = $this->_model->readOne($id);
 

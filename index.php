@@ -7,7 +7,7 @@ session_start();
   // require 'vendor/inc/navbar.php';    
    
 
-
+  
 
 ############ MESSAGES #############
 
@@ -83,7 +83,7 @@ session_start();
       exit;
     }
   } catch(Exception $e) {
-    header('Location:500');
+    header('Location: 500');
     exit;
   }
 
