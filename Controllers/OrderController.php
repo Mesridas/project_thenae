@@ -6,8 +6,6 @@ class OrderController {
 
     public function __construct(){
 
-    public function __construct(){
-zézé
         try{
 
             $this->_model = new OrdersModel;
