@@ -19,7 +19,7 @@
                 }
                     
                 foreach($array as $carousel){ // Le dossier de mes images est l'id de mes categories
-                  echo '<a href="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
+                  echo '<a href="img/carousels/visible/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
                 }
 
                 echo '</div>';
@@ -49,7 +49,7 @@
   <?php 
       foreach($hidden as $hide){
 
-        echo '<a href="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg" data-lightbox="'.$hide->getLocation().'" data-title="'.$hide->getTitle().'"><img src="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg"></a>';
+        echo '<a href="img/carousels/invisible/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg" data-lightbox="'.$hide->getLocation().'" data-title="'.$hide->getTitle().'"><img src="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg"></a>';
         
       }
   ?>

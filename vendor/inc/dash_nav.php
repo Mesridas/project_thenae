@@ -11,9 +11,9 @@
           Administration
         </p>
         <ul class="menu-list">
-          <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'Gallery_main' ? 'is-active' : '' ?>">Section - présentation </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'Gallery_main' ? 'is-active' : '' ?>">Présentation - Section </a></li>
           <li><a href="index.php?ctrl=admin&action=manageGalerie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes créations - Galerie </a></li>
-          <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Plus en détails - Carousels/Sliders </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageCategorie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Plus en détails - Carousels </a></li>
           <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes demandes clients </a></li>
         </ul>
         <footer class="card-footer logout">

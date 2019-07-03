@@ -40,7 +40,7 @@ session_start();
     $method = $_GET['action'];
   }
 
-  try {
+  // try {
     
     if(class_exists($ctrl)) {
       $controller = new $ctrl;
@@ -82,11 +82,11 @@ session_start();
       header('Location: 3');
       exit;
     }
-  } catch(Exception $e) {
+  // } catch(Exception $e) {
     
-    header('Location: 500');
-    exit;
-  }
+  //   header('Location: 500');
+  //   exit;
+  // }
 
 
 // #############FIN ROUTEUR##########

@@ -31,11 +31,18 @@ class AdminController {
 
     public function manageSection(){
         self::section();
-    
-    }
+        }
 
     public function manageGalerie(){
         self::galerie();
+    }
+
+    public function manageCarousel(){
+        self::carousel();
+    }
+
+    public function manageCategorie(){
+        self::categorie();
     }
 
     public function editSection($id){
@@ -261,7 +268,53 @@ class AdminController {
 
     }
 
+    private function carousel(){
 
+        try{
+
+            $this->_model = new CarouselsModel;
+            $datas = $this->_model->readAll();
+            $carousels = [];
+
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $carousels[] = new Carousels($data);
+                }
+            }
+
+            include './Views/Carousel/list.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
+
+    private function categorie(){
+
+        try{
+
+            $this->_model = new CategoriesModel;
+            $datas = $this->_model->readAll();
+            $categories = [];
+
+            if(count($datas) > 0 ){
+
+                foreach ($datas as $data) {
+                $categories[] = new Categories($data);
+                }
+
+            }
+
+            include './Views/Carousel/main.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+
+        }
+    }
 
 
 
