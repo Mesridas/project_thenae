@@ -60,13 +60,13 @@ class SectionController {
                 $erreur = "Votre fichier n'est pas une image";
               
             }
-      
 
-            // if($idSection){
-            //     header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=success');
-            // }else{
-            //     header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=error');
-            // }
+            if($idSection){
+                header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=success');
+            }else{
+                header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=error');
+            }
+            
         }
     }
     
@@ -114,7 +114,7 @@ class SectionController {
                 $request['desc']= $section->getText();
             }
 
-            if(empty($files['mon_image_changed'])){
+            if(empty($files)){
 
                 $datas = $this->_model->readOne($id);
 
@@ -125,7 +125,6 @@ class SectionController {
                 $files['name']= $section->getImage();
             }else{
 
-                // var_dump($files['error']);
                 $files['name'] = basename($files['name']);
                 $ext = strtolower(substr(strrchr($files['name'], '.'), 1) );
                 $allow_ext = array( 'jpg' , 'jpeg' , 'gif' , 'png'); 
@@ -135,13 +134,17 @@ class SectionController {
                     $folder = "./img/sections";
                     $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
     
-                   #Je l'envoi en bdd
-                    $idSection = $this->_model->add($request, $files);
                 }
             }
 
             $edit = $this->_model->update($id, $request,$files['name']);
-            
+
+            if($edit){
+                header('Location: ./index.php?ctrl=admin&action=manageSection');
+                }else{
+                header('Location: ./index.php?ctrl=admin&action=manageSection');
+                } 
+                
 
         }catch(PDOException $e){
  

@@ -4,7 +4,7 @@
 ?>  
 
 <div class="container">
-<h2>Liste des sections </h2>
+<h2>Galerie d'image des nouveautés</h2>
 <table class="table">
   <thead>
     <tr>
@@ -20,7 +20,7 @@
   ?>
         <tr>
         <th><?php echo $galerie->getId()?></th>
-        <td><?php echo $galerie->getTitle()?></td>
+        <td><?php echo $galerie->getData_title()?></td>
         <td><figure class="image is-48x48">
           <img src="img/galeries/<?php echo $galerie->getImage() ;?>" alt="Placeholder image">
         </figure></td>
@@ -40,7 +40,7 @@
     <div class="field">
         <label for="title" class="label">Titre de l'image</label>
         <div class="control">
-            <input class="input" type="text" placeholder="Titre" name="title" id="title">
+            <input class="input" type="text" placeholder="Titre" name="title_gal" id="title">
         </div>
     </div>
     <div class="field">

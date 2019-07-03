@@ -40,7 +40,7 @@ class GalleryController {
 
     public function add($request){
 
-        if(!empty($_FILES) && !empty($request)){
+        if(!empty($_FILES) && !empty($request['title_gal'])){
 
  
             $files = $_FILES['mon_image_galerie'];
@@ -55,19 +55,18 @@ class GalleryController {
                 $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
 
                #Je l'envoi en bdd
-                $idSection = $this->_model->add($request, $files);
+                $idSection = $this->_model->add($request['title_gal'], $files);
             }else{
 
                 $erreur = "Votre fichier n'est pas une image";
               
             }
       
-
-            // if($idSection){
-            //     header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=success');
-            // }else{
-            //     header('Location: ./index.php?ctrl=admin&action=manageSection&addsection=error');
-            // }
+            if($idSection){
+                header('Location: ./index.php?ctrl=admin&action=manageGalerie&addGalerie=success');
+            }else{
+                header('Location: ./index.php?ctrl=admin&action=manageGalerie&addGalerie=error');
+            }
         }
     }
 
@@ -75,31 +74,29 @@ class GalleryController {
     public function update($id, $request){
        
         try{
-            $files = $_FILES['mon_image_galerie'];
-
-            if(empty($request['title'])){
+            $files = $_FILES['mon_image_galerie_edit'];
+            if(empty($request['title_gal'])){
 
                 $datas = $this->_model->readOne($id);
 
                 if(count($datas) > 0 ){
-                $section = new Sections($datas);
+                $galerie = new Galleries($datas);
                 }
 
-                $request['title']= $section->getTitle();
+                $request['title_gal']= $galerie->getData_title();
             }
 
-            if(empty($files['mon_image_galerie'])){
+            if(empty($files)){
 
                 $datas = $this->_model->readOne($id);
 
                 if(count($datas) > 0 ){
-                $section = new Sections($datas);
+                $galerie = new Galleries($datas);
                 }
 
-                $files['name']= $section->getImage();
+                $files['name']= $galerie->getImage();
             }else{
 
-                // var_dump($files['error']);
                 $files['name'] = basename($files['name']);
                 $ext = strtolower(substr(strrchr($files['name'], '.'), 1) );
                 $allow_ext = array( 'jpg' , 'jpeg' , 'gif' , 'png'); 
@@ -109,13 +106,16 @@ class GalleryController {
                     $folder = "./img/galeries";
                     $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
     
-                   #Je l'envoi en bdd
-                    $idSection = $this->_model->add($request, $files);
                 }
             }
 
             $edit = $this->_model->update($id, $request,$files['name']);
             
+            if($edit){
+                header('Location: ./index.php?ctrl=admin&action=manageGalerie&editGalerie=success');
+            }else{
+                header('Location: ./index.php?ctrl=admin&action=manageGalerie&editGalerie=error');
+            }
 
         }catch(PDOException $e){
  

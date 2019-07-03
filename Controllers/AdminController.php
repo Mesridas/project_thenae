@@ -42,8 +42,14 @@ class AdminController {
         self::edit($id);
     }
 
-    public function editGalerie(){
+    public function editGalerie($id){
         self::modify($id);
+    }
+
+    public function deleteGalerie($id){
+        // $ModelName = 'Galleries';
+        self::delete($id);
+        // self::delete($id, $ModelName);
     }
 
     private function landingConnection(){
@@ -197,7 +203,7 @@ class AdminController {
             $datas = $this->_model->readOne($id);
 
             if(count($datas) > 0 ){
-            $section = new Galleries($datas);
+            $galerie = new Galleries($datas);
             }
             
             include './Views/Gallery/edit.php';
@@ -214,7 +220,7 @@ class AdminController {
         try{
 
             $this->_model = new GalleriesModel;
-            $datas = $this->_model->readAll();
+            $datas = $this->_model->readAllAdmin();
             $galeries = [];
 
             if(count($datas) > 0 ){
@@ -232,6 +238,28 @@ class AdminController {
     }
 
 
+    private function delete($id){
+    // private function delete($id, $ModelName){
+
+        try{
+            
+            $this->_model = new GalleriesModel;
+            // $this->_model = new $ModelName.'Model';
+
+            $del = $this->_model->delete($id);
+    
+            if($del){
+            header('Location: ./index.php?ctrl=admin&action=manageGalerie');
+            }else{
+            header('Location: ./index.php?ctrl=admin&action=manageGalerie');
+            }            
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
 
 
 
