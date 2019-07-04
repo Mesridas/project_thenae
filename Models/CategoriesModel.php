@@ -124,7 +124,7 @@
         public function update($id, $request){
 
             try {
-var_dump($request);
+
                 $query = 'UPDATE `CATEGORIES` SET `cat_name` = :title WHERE `cat_id` = :id ';     
               
                 if(($req = $this->getDb()->prepare($query))!==false) {

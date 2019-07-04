@@ -37,8 +37,8 @@ class AdminController {
         self::galerie();
     }
 
-    public function manageCarousel(){
-        self::carousel();
+    public function manageCarousel($id){
+        self::carousel($id);
     }
 
     public function manageCategorie(){
@@ -52,6 +52,11 @@ class AdminController {
     public function editGalerie($id){
         self::modify($id);
     }
+
+    // public function editCategorie($id){
+    //     // self::change($id);
+    //     self::carousel($id);
+    // }
 
     public function deleteGalerie($id){
         // $ModelName = 'Galleries';
@@ -268,18 +273,30 @@ class AdminController {
 
     }
 
-    private function carousel(){
+    private function carousel($id){
 
         try{
 
             $this->_model = new CarouselsModel;
-            $datas = $this->_model->readAll();
+            $datas = $this->_model->readAllFromCat($id);
             $carousels = [];
 
             if(count($datas) > 0 ){
                 foreach ($datas as $data) {
                   $carousels[] = new Carousels($data);
                 }
+            }
+
+            $this->_model = new CategoriesModel;
+            $datas = $this->_model->readAll();
+            $categories = [];
+
+            if(count($datas) > 0 ){
+
+                foreach ($datas as $data) {
+                $categories[] = new Categories($data);
+                }
+
             }
 
             include './Views/Carousel/list.php';
@@ -311,10 +328,17 @@ class AdminController {
 
         }catch(PDOException $e){
  
-        throw new Exception($e->getMessage(), 0 , $e);
+            throw new Exception($e->getMessage(), 0 , $e);
 
         }
     }
+
+
+    // public function private change($id){
+
+
+    // }
+
 
 
 

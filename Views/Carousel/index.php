@@ -19,7 +19,7 @@
                 }
                     
                 foreach($array as $carousel){ // Le dossier de mes images est l'id de mes categories
-                  echo '<a href="img/carousels/visible/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/photo_thenae/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'.jpg" class="img-thumbnail"></a>';
+                  echo '<a href="img/carousels/visible/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'" data-lightbox="'.$carousel->getLocation().'" data-title="'.$carousel->getTitle().'"><img src="img/carousels/visible/'.$carousel->getCategorie_id().'/'.$carousel->getImage().'" class="img-thumbnail"></a>';
                 }
 
                 echo '</div>';

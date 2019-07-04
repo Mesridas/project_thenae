@@ -45,8 +45,17 @@ class CategorieController {
 
         if(!empty($request['title_cat'])){
 
-            
-                $idCat = $this->_model->add($request['title_cat']);
+            $idCat = $this->_model->add($request['title_cat']);
+
+            #On va créer un dossier avec la catégorie de l'id si le dossier n'existe pas déjà
+            if($idCat != false){
+
+                $filename = './img/carousels/visible/'.$idCat ;
+
+                if(file_exists($filename) != true){
+                    mkdir($filename, 0777);
+                }
+            }
 
         }else{
 
@@ -62,6 +71,8 @@ class CategorieController {
 
 
     }
+
+    
 
     public function delete($id){
 
