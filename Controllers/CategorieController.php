@@ -51,9 +51,11 @@ class CategorieController {
             if($idCat != false){
 
                 $filename = './img/carousels/visible/'.$idCat ;
+                $filedetails = './img/carousels/invisible/'.$idCat ;
 
                 if(file_exists($filename) != true){
                     mkdir($filename, 0777);
+                    mkdir($filedetails, 0777);
                 }
             }
 

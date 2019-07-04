@@ -107,13 +107,19 @@ class CarouselController {
 
     #Function pour voir les images rattachés à l'image principale
     public function manageMe($id){
-
+#Faire un readal dans un <li> </li> avec choix de radio button pour définir l'image 1 
         try{
+
             $this->_model = new CarouselsModel;
             $datas = $this->_model->readOne($id);
-
             if(count($datas) > 0 ){
             $carousel = new Carousels($datas);
+            }
+
+            
+            $img_details = $this->_model->readDetails($carousel->getLocation());
+            if(count($img_details) > 0 ){
+            $hidden = new Carousels($img_details);
             }
             
             include './Views/Carousel/edit.php';

@@ -8,22 +8,26 @@
 <table class="table">
   <thead>
     <tr>
-      <th><abbr title="id">#</abbr></th>
-      <th>Titre de la catégorie</th>
-      <th><abbr title="Content">Description de l'image</abbr></th>
-      <th><abbr title="Image">Image</abbr></th>
+      <th><abbr title="id">Image principale</abbr></th>
+      <th>Image(s) de détails</th>
     </tr>
   </thead>
 
   <tbody>
         <tr>
         <th>        
-        <figure class="image is-48x48">
-          <img src="img/carousels/visible/<?php echo $carousel->getCategorie_id().'/'.$carousel->getImage() ;?>" alt="Placeholder image">
-        </figure></th>
+            <figure class="image is-48x48">
+                <img src="img/carousels/visible/<?php echo $carousel->getCategorie_id().'/'.$carousel->getImage() ;?>" >
+            </figure></th>
+        <?php foreach($hidden as $hide){ 
+            var_dump($hidden);?>            
+        <td>
+            <figure class="image is-48x48">
+                <img src="img/carousels/invisible/<?php echo $hide->getCategorie_id().'/'.$hide->getImage() ;?>" >
+            </figure>
+        </td> 
+         <?php } ?>       
         <td><?php echo $carousel->getCategorie_name()?></td>
-        <td><?php echo $carousel->getTitle()?></td>
-
         <td><a href="index.php?ctrl=carousel&action=deleteMe&id=<?php echo $carousel->getId()?>" class=" btn button-info ">Supprimer l'image</a></td>
         </tr>
   </tbody>
