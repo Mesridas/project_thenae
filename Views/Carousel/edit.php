@@ -1,10 +1,15 @@
 <?php   
   require 'vendor/inc/dash_head.php'; 
   require 'vendor/inc/dash_nav.php'; 
+
+  $id = $_GET['id'];
+
 ?>  
+
 
 <div class="container">
 <h2>Images principales de la catégorie</h2>
+<form action="index.php?ctrl=carousel&action=deleteDetails&id=<?php echo $id ?>" method="POST">
 <table class="table">
   <thead>
     <tr>
@@ -12,31 +17,37 @@
       <th>Image(s) de détails</th>
     </tr>
   </thead>
-
   <tbody>
         <tr>
         <th>        
             <figure class="image is-48x48">
                 <img src="img/carousels/visible/<?php echo $carousel->getCategorie_id().'/'.$carousel->getImage() ;?>" >
             </figure></th>
-        <?php foreach($hidden as $hide){ 
-            var_dump($hidden);?>            
+        <?php 
+        unset($hidden[0]);    
+        foreach($hidden as $hide){ 
+        ?>            
         <td>
             <figure class="image is-48x48">
                 <img src="img/carousels/invisible/<?php echo $hide->getCategorie_id().'/'.$hide->getImage() ;?>" >
             </figure>
-        </td> 
-         <?php } ?>       
-        <td><?php echo $carousel->getCategorie_name()?></td>
-        <td><a href="index.php?ctrl=carousel&action=deleteMe&id=<?php echo $carousel->getId()?>" class=" btn button-info ">Supprimer l'image</a></td>
+            <br>
+            <label class="checkbox">
+                <input type="checkbox" name="select[]" value="<?php echo $hide->getId()?>">
+            </label>
+
+         <?php } ?>  
+        </td>               
+        <td><button name="submit" class="button is-danger is-small">Supprimer les images cochées</button></td>
         </tr>
   </tbody>
 </table>  
+</form>
 </div>
 <br>
 <div class="container">
 <h2>Ajouter des images détails pour cette image </h2>
-<form method="POST" action="index.php?ctrl=carousel&action=add" class="control" enctype="multipart/form-data">
+<form method="POST" action="index.php?ctrl=carousel&action=addDetails&id=<?php echo $id ?>" class="control" enctype="multipart/form-data">
     <div class="field">
         <label for="desc" class="label">Description de l'image</label>
         <div class="control">
@@ -47,11 +58,11 @@
         <label for="mon_image" class="label">Veuillez ajouter une image à afficher</label>
         <div class="control">
             <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-            <input type="file" name="mon_image_principale" id="mon_image">
+            <input type="file" name="mon_image_details" id="mon_image">
         </div>
     </div>
     <input type="hidden" name="location">
-    <input type="hidden" name="cat_number" value="<?php echo $id?>">
+    <input type="hidden" name="cat_number">
     <div class="field">
         <div class="control">
             <button class="button is-link">Envoyer</button>

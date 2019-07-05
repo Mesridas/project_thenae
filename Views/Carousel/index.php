@@ -49,7 +49,7 @@
   <?php 
       foreach($hidden as $hide){
 
-        echo '<a href="img/carousels/invisible/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg" data-lightbox="'.$hide->getLocation().'" data-title="'.$hide->getTitle().'"><img src="img/img_details/'.$hide->getCategorie_id().'/'.$hide->getImage().'.jpg"></a>';
+        echo '<a href="img/carousels/invisible/'.$hide->getCategorie_id().'/'.$hide->getImage().'" data-lightbox="'.$hide->getLocation().'" data-title="'.$hide->getTitle().'"><img src="img/carousels/invisible/'.$hide->getCategorie_id().'/'.$hide->getImage().'"></a>';
         
       }
   ?>

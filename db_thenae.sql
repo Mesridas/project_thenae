@@ -206,7 +206,7 @@ ALTER TABLE `USERS` ADD CONSTRAINT `users_medias_fk` FOREIGN KEY (`use_picture_f
 
 ALTER TABLE `EVENT` ADD CONSTRAINT  `event_users_fk`FOREIGN KEY (`eve_user_fk`) REFERENCES `thenae_creations`.`USERS`(`use_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
-ALTER TABLE `CAROUSEL` ADD CONSTRAINT  `carousel_categorie_fk` FOREIGN KEY (`car_categorie_id`) REFERENCES `thenae_creations`.`CATEGORIES`(`cat_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `CAROUSEL` ADD CONSTRAINT  `carousel_categorie_fk` FOREIGN KEY (`car_categorie_id`) REFERENCES `thenae_creations`.`CATEGORIES`(`cat_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE `manage` ADD CONSTRAINT `manage_orders_fk` FOREIGN KEY (`man_ord_id`) REFERENCES `thenae_creations`.`ORDERS`(`ord_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 

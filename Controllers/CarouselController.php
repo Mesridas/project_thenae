@@ -107,10 +107,9 @@ class CarouselController {
 
     #Function pour voir les images rattachés à l'image principale
     public function manageMe($id){
-#Faire un readal dans un <li> </li> avec choix de radio button pour définir l'image 1 
+
         try{
 
-            $this->_model = new CarouselsModel;
             $datas = $this->_model->readOne($id);
             if(count($datas) > 0 ){
             $carousel = new Carousels($datas);
@@ -119,7 +118,10 @@ class CarouselController {
             
             $img_details = $this->_model->readDetails($carousel->getLocation());
             if(count($img_details) > 0 ){
-            $hidden = new Carousels($img_details);
+                foreach($img_details as $img_detail){
+                    $hidden[] = new Carousels($img_detail);                    
+                }
+
             }
             
             include './Views/Carousel/edit.php';
@@ -130,9 +132,6 @@ class CarouselController {
         }
 
     }
-
-
-
 
 
     #Function qui supprime l'image principale
@@ -155,5 +154,92 @@ class CarouselController {
     }
 
 
+
+    #Function qui supprime l'image principale
+    public function deleteDetails($id, $request){
+
+        try{
+
+            if(!empty($request['select'])){
+                    #Je récupère mes différents id pour le IN() en SQL
+                    $ids = implode(",", $request['select']);
+
+                    $del = $this->_model->deleteDetails($ids);
+            }else{
+                header('Location: ./index.php?ctrl=carousel&action=manageMe&id='.$id.'');
+            }
+  
+            if($del){
+                header('Location: ./index.php?ctrl=carousel&action=manageMe&id='.$id.'');
+            }else{
+                header('Location: ./index.php?ctrl=carousel&action=manageMe&id='.$id.'');
+            }            
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
+
+
+
+
+    #Fonction pour ajouter une image principale pour un carousel
+    public function addDetails($id, $request){
+
+        try{        
+            
+           $datas = $this->_model->readOne($id);
+            if(count($datas) > 0 ){
+            $carousel = new Carousels($datas);
+            }
+
+
+            if(!empty($_FILES) && !empty($request)){
+    
+                $files = $_FILES['mon_image_details'];
+                $files['name'] = basename($files['name']);
+                $ext = strtolower(substr(strrchr($files['name'], '.'), 1) );
+                $allow_ext = array( 'jpg' , 'jpeg' , 'gif' , 'png'); 
+
+                $request['location'] = $carousel->getLocation();
+                $request['cat_number'] = $carousel->getCategorie_id();
+                
+                if(empty($request['desc'])){
+                    $request['desc'] = $carousel->getTitle();
+                }
+                
+                
+                // #Je stocke l'image dans le dossier
+                if(in_array($ext, $allow_ext)){
+
+                    $folder = './img/carousels/invisible/'.$request['cat_number'];
+                    $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
+
+
+
+                #Je l'envoi en bdd
+                    $idCarousel = $this->_model->addDetails($request, $files);
+
+                }else{
+
+                    $erreur = "Votre fichier n'est pas une image";
+                
+                }
+
+                    if($idCarousel){
+                        header('Location: ./index.php?ctrl=carousel&action=manageMe&id='.$id.'&addcar=success');
+                    }else{
+                        header('Location: ./index.php?ctrl=carousel&action=manageMe&id='.$id.'&addcar=error');
+                    }  
+            }
+
+        }catch(PDOException $e){
+ 
+            throw new Exception($e->getMessage(), 0 , $e);
+            
+        }
+
+    }
 
 }

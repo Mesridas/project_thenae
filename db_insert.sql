@@ -84,7 +84,7 @@ INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `c
 
 INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (23, "Fabrication Thénae Créations", "pochettes", 1, "11.jpg", 2);
 
-INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (24, "Fabrication Thénae Créations", "pochettes", 1, "12.jpg", 2);.jpg
+INSERT INTO `CAROUSEL`(`car_id`, `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES (24, "Fabrication Thénae Créations", "pochettes", 1, "12.jpg", 2);
 
 
 

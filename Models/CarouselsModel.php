@@ -66,7 +66,7 @@
         public function readDetails($lightbox){
 
             try{
-// LIRE LA OU LE LOCATION EST LE MEME MAIS EXCEPT LA 1
+
                 $query = 'SELECT `car_id` AS `id`, `car_image` AS `image`, `car_title` AS `title`, `car_location` AS `location`, `car_type_img` AS `type_img`, `car_categorie_id` AS `categorie_id`, `cat_id`, `cat_name` AS `categorie_name`
                 FROM `CAROUSEL` 
                 LEFT JOIN `CATEGORIES` ON `car_categorie_id` = cat_id
@@ -215,6 +215,68 @@
       
         }
 
+        public function deleteDetails($ids){
+
+            try{
+      
+              $query = 'DELETE FROM `CAROUSEL` WHERE `car_id` IN ('.$ids.') ';
+      
+              if(($this->_req = $this->getDb()->prepare($query)) !== false){
+          
+                if($this->_req->execute()) {
+      
+                    $res = $this->_req->rowCount();
+                    return $res;
+                }
+      
+              }
+      
+              return false;
+      
+            }catch(PDOException $e){
+      
+              throw new Exception($e->getMessage(), 1 , $e);
+      
+            }
+      
+        }
+
+        public function addDetails($request, $files){
+
+
+            try{
+
+                $query = 'INSERT INTO `CAROUSEL`( `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES ( :description, :location, 0, :img, :id_cat) ';
+
+                if(($this->_req = $this->getDb()->prepare($query)) !== false){
+
+                    if(
+                        $this->_req->bindValue('img', $files['name']) 
+                        && $this->_req->bindValue('description', $request['desc']) 
+                        && $this->_req->bindValue('location', $request['location']) 
+                        && $this->_req->bindValue('id_cat', $request['cat_number']) 
+                    ){
+
+                        if($this->_req->execute()) {
+
+                            $res = $this->getDb()->lastInsertId();
+                            return $res;
+              
+                          }
+                    }
+                }
+
+                return false;
+
+            }catch(PDOException $e){
+
+                throw new Exception($e->getMessage(), 1 , $e);
+        
+            }
+
+        }
+
+        
 
 
        
