@@ -1,7 +1,8 @@
-<?php   
-  require 'vendor/inc/dash_head.php'; 
-  require 'vendor/inc/dash_nav.php'; 
-?>  
+<?php  require 'vendor/inc/dash_head.php'; ?>
+
+<div class="columns is-full is-multiline">
+
+<?php  require 'vendor/inc/dash_nav.php'; ?>  
 
       <div class="container column is-10 ">
         <div class="section">
@@ -27,4 +28,5 @@
         </div>
       </div>
       
+  </div> <!-- Div qui ferme la nav + la premier div de columns is-ful-->
 <?php   require 'vendor/inc/dash_foot.php'; ?>  

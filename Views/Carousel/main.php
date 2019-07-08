@@ -1,9 +1,12 @@
-<?php   
-  require 'vendor/inc/dash_head.php'; 
-  require 'vendor/inc/dash_nav.php'; 
-?>  
+<?php  require 'vendor/inc/dash_head.php'; ?>
 
-<div class="container">
+<div class="columns is-full is-multiline">
+
+<?php  require 'vendor/inc/dash_nav.php'; ?>  
+
+<div class="column columns is-10 is-multiline container">
+
+<div class="column is-full">
 <h2>Liste des catégories</h2>
 <table class="table">
   <thead>
@@ -34,7 +37,7 @@
 </table>  
 </div>
 <br>
-<div class="container">
+<div class="column is-full">
 <h2>Ajouter une categorie </h2>
 <form method="POST" action="index.php?ctrl=categorie&action=add" class="control" enctype="multipart/form-data">
     <div class="field">
@@ -51,6 +54,9 @@
 </form>
 </div>
 
+</div>
+
+</div> <!-- Div qui ferme la nav + la premier div de section -->
 
       
 <?php   require 'vendor/inc/dash_foot.php'; ?>  

@@ -92,4 +92,4 @@ session_start();
 // #############FIN ROUTEUR##########
 
 
-require 'vendor/inc/footer.php'; 
+// require 'vendor/inc/footer.php'; 

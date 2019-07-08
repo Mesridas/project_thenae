@@ -1,11 +1,12 @@
-<aside class="column is-2 is-fullheight section has-background-white ">
-        <p class="has-text-link is-size-2">Thenae</p>
+<aside class="column is-2 is-fullheight section has-background-white">
+        <!-- <p class="has-text-link is-size-2">Thenae</p> -->
+        <p class="has-text-link is-one-quarter">Thenae</p>
           <p class="menu-label">
           General
         </p>
         <ul class="menu-list">
           <li><a href="index.php?ctrl=admin&action=dashboard" class="<?php echo $page == 'Dashboard' ? 'is-active' : '' ?>">Tableau d'administration</a></li>
-          <li><a href="index.php?ctrl=home&action=index" class="<?php echo $page == 'Dashboard' ? 'is-active' : '' ?>">Revenir sur le site</a></li>
+          <li><a href="index.php?ctrl=home&action=index">Revenir sur le site</a></li>
         </ul>
         <p class="menu-label">
           Administration

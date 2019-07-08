@@ -1,13 +1,17 @@
-<?php   
-  require 'vendor/inc/dash_head.php'; 
-  require 'vendor/inc/dash_nav.php'; 
+<?php  require 'vendor/inc/dash_head.php'; ?>
+
+<div class="columns is-full is-multiline">
+
+<?php  require 'vendor/inc/dash_nav.php';   
 
   $id = $_GET['id'];
 
 ?>  
 
+<div class="column columns is-10 is-multiline container">
 
-<div class="container">
+
+<div class="column is-full">
 <h2>Images principales de la catégorie</h2>
 <form action="index.php?ctrl=carousel&action=deleteDetails&id=<?php echo $id ?>" method="POST">
 <table class="table">
@@ -45,7 +49,7 @@
 </form>
 </div>
 <br>
-<div class="container">
+<div class="column is-full">
 <h2>Ajouter des images détails pour cette image </h2>
 <form method="POST" action="index.php?ctrl=carousel&action=addDetails&id=<?php echo $id ?>" class="control" enctype="multipart/form-data">
     <div class="field">
@@ -70,7 +74,9 @@
     </div>
 </form>
 </div>
+</div>
 
+</div> <!-- Div qui ferme la nav + la premier div de section -->
 
       
 <?php   require 'vendor/inc/dash_foot.php'; ?>  
