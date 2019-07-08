@@ -45,6 +45,10 @@ class AdminController {
         self::categorie();
     }
 
+    public function manageForm(){
+        self::formulaire();
+    }
+
     public function editSection($id){
         self::edit($id);
     }
@@ -334,10 +338,28 @@ class AdminController {
     }
 
 
-    // public function private change($id){
+    private function formulaire(){
 
+        try{
 
-    // }
+            // $this->_model = new OrdersModel;
+            // $datas = $this->_model->readAll();
+            // $orders = [];
+
+            // if(count($datas) > 0 ){
+            //     foreach ($datas as $data) {
+            //       $orders[] = new Orders($data);
+            //     }
+            // }
+
+            include './Views/Form/main.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
 
 
 

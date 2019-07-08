@@ -15,7 +15,8 @@
           <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'Gallery_main' ? 'is-active' : '' ?>">Présentation - Section </a></li>
           <li><a href="index.php?ctrl=admin&action=manageGalerie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes créations - Galerie </a></li>
           <li><a href="index.php?ctrl=admin&action=manageCategorie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Plus en détails - Carousels </a></li>
-          <li><a href="gallery_sac.php" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes demandes clients </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageForm" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes demandes clients </a></li>
+          <li><a href="index.php?ctrl=admin&action=managePopup" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Bannières évènemments  </a></li>
         </ul>
         <footer class="card-footer logout">
           <a href=".?logout" class="card-footer-item button is-white">

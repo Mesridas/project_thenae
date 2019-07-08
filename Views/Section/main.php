@@ -6,7 +6,7 @@
 
 <div class="column columns is-10 is-multiline container">
 
-<div class="column ">
+<div class="column is-full ">
 <h2>Liste des sections </h2>
 <table class="table">
   <thead>
@@ -41,7 +41,7 @@
 </div>
 <!-- <br> -->
 
-<div class="column">
+<div class="column is-full">
 <h2>Ajouter une section : </h2>
 <form method="POST" action="index.php?ctrl=section&action=add" class="control" enctype="multipart/form-data">
     <div class="field">
