@@ -1,16 +1,8 @@
  <!-- Formulaire de contact  -->
 
 <section id="contactme">
-<div class="container">
-  	<div class="container-contact100">
-      <button class="contact100-btn-show">
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-      </button>
-		  <div class="wrap-contact100">
-			<button class="contact100-btn-hide">
-				<i class="fa fa-close" aria-hidden="true"></i>
-            </button>
-            
+	<div class="container">
+		<div class="container-contact100">            
         <?php if(isset($_SESSION['thenae']['errors'])): ?>
           <div class="alert alert-warning">
             <?php echo implode('<br>', $_SESSION['thenae']['errors']); ?>
@@ -60,11 +52,6 @@
 				Pour plus d'informations à propos de vos envies ou de mes créations : <span class="contact100-more-highlight">contact@thenaecreations.fr</span>
 			</span>
 		</div>
+
 	</div>
-
-
-
-	<div id="dropDownSelect1">
-  </div>
-</div>
 </section>

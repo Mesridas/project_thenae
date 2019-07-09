@@ -33,13 +33,14 @@ header.masthead .bg-circle-1{
 
 /* Formulaire de contact  */
     /* Bouton icone form contact  */
-    .contact100-btn-show{
+     /* .contact100-btn-show{
         position: absolute;
-    }
+    } */
 
-    .container-contact100{
+     .container-contact100{
         min-height: 50vh;
-    }
+        margin-top: 50px;
+    } 
 
 /* Gallerie photo */
     /* Disposition des thumb img */
