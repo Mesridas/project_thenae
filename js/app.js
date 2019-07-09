@@ -9,15 +9,14 @@
 //     }
 // }
 
-
 // httpRequest.open('GET', 'index.php?ctrl=admin&action=manageForm&id=', true);   
 
 // httpRequest.send();
  
-$(document).ready(function(){
+// $(document).ready(function(){
 
     $("button").click(function(){
         alert('j\'ai cliqué');
     })
 
-})
+// })

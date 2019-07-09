@@ -1,4 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container"></div>
           <a class="navbar-brand" href="#">Thénaë Créations</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,5 +16,5 @@
         </div>
 
       </div>
-    </nav> -->
+    </nav>
 
