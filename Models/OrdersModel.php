@@ -101,6 +101,39 @@
         }
 
 
+        public function readOrdersby($status){
+
+            try{
+
+                $query = 'SELECT `ord_id` AS `id`, `ord_content` AS `content`, `ord_statut` AS `statut`, `ord_customer_fk` AS `customer_id`, `cus_name` AS `customer_name`, `cus_email` AS `customer_email`, `cus_id` 
+                FROM `ORDERS`
+                LEFT JOIN `CUSTOMERS` ON `ord_customer_fk` = `cus_id`
+                WHERE `ord_statut` = :state';
+
+                    if(($this->_req = $this->getDb()->prepare($query)) !== false){
+
+                        if($this->_req->bindValue('state', $status, PDO::PARAM_INT)){
+
+                            if($this->_req->execute()) {
+
+                                $datas = $this->_req->fetchAll(PDO::FETCH_ASSOC);
+
+                                return $datas;
+
+                            }
+                        }
+
+                    }
+
+                    return false;
+
+
+            }catch(PDOException $e){
+
+                throw new Exception($e->getMessage(), 0, $e);
+            }
+        }
+
 
 
 

@@ -13,6 +13,14 @@
 </section>
 <section class="column is-6 has-background-grey-dark tile">
 </section> -->
+<?php 
+
+// echo '<pre>';
+// var_dump($orders);
+// echo '</pre>';
+
+ ?>
+
 
 <div class="tile is-ancestor">
   <!-- All other tile elements -->
@@ -22,7 +30,15 @@
         <div class="tile is-child box">Achevée(s)</div>
     </div>
     <div class="tile  is-3 is-primary is-vertical is-parent">
+    <?php foreach($orders as $order){
+        echo '
         <div class="tile is-child box">
+            <p class="title">'.$order->getCustomer_name().'</p>
+            <p class="subtitle">'.$order->getCustomer_email().'</p>
+            <p class="subtitle">Numéro de commande :'.$order->getId().'</p>
+        </div>';
+    } ?>
+        <!-- <div class="tile is-child box">
             <p class="title">Nom</p>
             <p class="subtitle">Email</p>
         </div>
@@ -37,8 +53,11 @@
         <div class="tile is-child box">
             <p class="title">Nom</p>
             <p class="subtitle">Email</p>
-        </div>
+        </div> -->
     </div>
+
+    <!-- Récuperer l'id de mon client en onclick  et faire une afficher mon message where l'id de 
+    de mon message est egal a l'id du client et de la commande du onclick aussi -->
     <div class="tile is-6 is-danger is-parent">
         <div class="tile is-child box content">
             <p class="title ">Message</p>

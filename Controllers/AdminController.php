@@ -78,6 +78,7 @@ class AdminController {
             throw new Exception($e->getMessage(), 0 , $e);
       
         }
+
         #GERER AFFICHAGE MESSAGE ERREUR CONNECTION        
         // if(isset($_GET['_err'])){
 
@@ -342,15 +343,16 @@ class AdminController {
 
         try{
 
-            // $this->_model = new OrdersModel;
-            // $datas = $this->_model->readAll();
-            // $orders = [];
+            $status = 1;
+            $this->_model = new OrdersModel;
+            $datas = $this->_model->readOrdersBy($status);
+            $orders = [];
 
-            // if(count($datas) > 0 ){
-            //     foreach ($datas as $data) {
-            //       $orders[] = new Orders($data);
-            //     }
-            // }
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $orders[] = new Orders($data);
+                }
+            }
 
             include './Views/Form/main.php';
 
