@@ -4,7 +4,11 @@ session_start();
   require_once 'config/ini.php';
   require_once 'vendor/autoload.php';
   require 'vendor/inc/header.php';
-  // require 'vendor/inc/navbar.php';    
+
+  if(isset($ctrl) != 'admin'){
+    require 'vendor/inc/navbar.php';  
+  }
+    
    
 
   
