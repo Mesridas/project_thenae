@@ -17,15 +17,6 @@ class OrderController {
 
     }
 
-
-    // public function index(){
-    //     try{
-
-    //     }catch(PDOException $e){
- 
-    //     throw new Exception($e->getMessage(), 0 , $e);
-    //     }
-    // }
     
     public function store($request){
 
@@ -66,6 +57,7 @@ class OrderController {
     }
 
 
+    
 
 
 

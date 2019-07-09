@@ -13,16 +13,32 @@
 </section>
 <section class="column is-6 has-background-grey-dark tile">
 </section> -->
+<?php 
+
+// echo '<pre>';
+// var_dump($orders);
+// echo '</pre>';
+
+ ?>
+
 
 <div class="tile is-ancestor">
   <!-- All other tile elements -->
     <div class="tile is-2 is-vertical is-parent">
-        <div class="tile is-child box">En attente</div>
-        <div class="tile is-child box">En cours</div>
-        <div class="tile is-child box">Achevée(s)</div>
+        <button class="tile is-child box" value="1">En attente</button>
+        <button class="tile is-child box" value="2">En cours</button>
+        <button class="tile is-child box" value="3">Achevée(s)</button>
     </div>
     <div class="tile  is-3 is-primary is-vertical is-parent">
+    <?php foreach($orders as $order){
+        echo '
         <div class="tile is-child box">
+            <p class="title">'.$order->getCustomer_name().'</p>
+            <p class="subtitle">'.$order->getCustomer_email().'</p>
+            <p class="subtitle">Numéro de commande :'.$order->getId().'</p>
+        </div>';
+    } ?>
+        <!-- <div class="tile is-child box">
             <p class="title">Nom</p>
             <p class="subtitle">Email</p>
         </div>
@@ -37,8 +53,11 @@
         <div class="tile is-child box">
             <p class="title">Nom</p>
             <p class="subtitle">Email</p>
-        </div>
+        </div> -->
     </div>
+
+    <!-- Récuperer l'id de mon client en onclick  et faire une afficher mon message where l'id de 
+    de mon message est egal a l'id du client et de la commande du onclick aussi -->
     <div class="tile is-6 is-danger is-parent">
         <div class="tile is-child box content">
             <p class="title ">Message</p>
@@ -68,6 +87,6 @@
 </div> <!-- Div qui ferme la nav + la premier div de section -->
 
 
-
+<script src="js/app.js"></script>
       
 <?php   require 'vendor/inc/dash_foot.php'; ?>  
