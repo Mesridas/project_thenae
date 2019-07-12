@@ -2,10 +2,11 @@ $(document).ready(function(){
 
     $("button").click(function(){
         var idStatut = ($(this).val());
-        console.log(idStatut);
+        // console.log(idStatut);
 
+        $('.tile').removeClass("notification");    
         $(this).addClass("notification is-primary");
-            
+
         $.ajax({
             url : "index.php",
             type : 'GET',
@@ -32,6 +33,9 @@ $(document).ready(function(){
         var idOrder = ($(this).attr('id'));     
         console.log(this);
         console.log(idOrder);
+
+        $('.selectedOrder').removeClass("notification");    
+        $(this).addClass("notification is-primary");
 
         // ajouter un notification is-primary dans la class en même temps que je clic dessus
     

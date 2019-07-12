@@ -30,7 +30,7 @@
         <button class="tile is-child box" value="3">Achevée(s)</button>
     </div>
     
-    <div id="lastorders" class="tile  is-3 is-primary is-vertical is-parent">
+    <div id="lastorders" class="tile  is-3 is-vertical is-parent">
     <?php foreach($orders as $order){
         echo '
         <div id="'.$order->getId().'" class="tile is-child box selectedOrder">
