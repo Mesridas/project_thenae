@@ -61,9 +61,7 @@ class OrderController {
     
         try{
             
-    
-            $model = new OrdersModel();
-            $datas = $model->readOrdersBy($statut);
+            $datas = $this->_model->readOrdersBy($statut);
             $orders = [];
     
             if(count($datas) > 0 ){
@@ -74,7 +72,7 @@ class OrderController {
     
         }catch(PDOException $e){
     
-        throw new Exception($e->getMessage(), 0 , $e);
+            throw new Exception($e->getMessage(), 0 , $e);
     
         }
     
@@ -83,7 +81,7 @@ class OrderController {
         foreach($orders as $order){
     
             $result .= '
-            <div class="tile is-child box">
+            <div id="'.$order->getId().'" class="tile is-child box selectedOrder">
                 <p class="title">'.$order->getCustomer_name().'</p>
                 <p class="subtitle">'.$order->getCustomer_email().'</p>
                 <p class="subtitle">Numéro de commande :'.$order->getId().'</p>
@@ -93,9 +91,30 @@ class OrderController {
     
     }
     
-// public function getMessageFromOrder($order_id){
 
-// }
+    public function getMessageFromOrder($order_id){
+
+        try{
+            
+
+            $data = $this->_model->readMessageFrom($order_id);
+            $order = '';
+    
+            if(count($data) > 0 ){
+
+                $order = new Orders($data);
+
+            }
+        
+           return $result = '<p id="orderMessage">'.$order->getContent().'</p>'; 
+
+    
+        }catch(PDOException $e){
+    
+            throw new Exception($e->getMessage(), 0 , $e);
+    
+        }
+    }
 
 
 }

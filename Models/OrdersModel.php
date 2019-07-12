@@ -134,6 +134,38 @@
             }
         }
 
+        public function readMessageFrom($idOrder){
+
+            try{
+
+                $query = 'SELECT `ord_content` AS `content`
+                FROM `ORDERS`
+                WHERE `ord_id` = :id';
+
+                    if(($this->_req = $this->getDb()->prepare($query)) !== false){
+
+                        if($this->_req->bindValue('id', $idOrder, PDO::PARAM_INT)){
+
+                            if($this->_req->execute()) {
+
+                                $data = $this->_req->fetch(PDO::FETCH_ASSOC);
+
+                                return $data;
+
+                            }
+                        }
+
+                    }
+
+                    return false;
+
+
+            }catch(PDOException $e){
+
+                throw new Exception($e->getMessage(), 0, $e);
+            }
+        }
+
 
 
 

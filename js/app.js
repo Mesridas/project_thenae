@@ -1,30 +1,11 @@
-
-
-
-
-
-
-
-// httpRequest.open('GET', 'index.php?ctrl=admin&action=manageForm&id=', true);   
-
-// httpRequest.send();
- 
 $(document).ready(function(){
 
     $("button").click(function(){
         var idStatut = ($(this).val());
         console.log(idStatut);
 
-    // var httpRequest = new XMLHttpRequest();
-
-    // httpRequest.onreadystatechange = function () {
-    //     if(httpRequest.readyState === 4 ){
-    //     // document.getElementById() = httpRequest.responseText;
-        
-    //         httpRequest.open('GET', 'index.php?ctrl=admin&action=manageForm&id='+idStatut, true); 
-    //         httpRequest.send();
-    //     }
-    // }
+        $(this).addClass("notification is-primary");
+            
         $.ajax({
             url : "index.php",
             type : 'GET',
@@ -42,6 +23,37 @@ $(document).ready(function(){
 
         })
         
-    })
+    });
+    
+
+
+    $(document).on('click', '.selectedOrder', function(){ 
+
+        var idOrder = ($(this).attr('id'));     
+        console.log(this);
+        console.log(idOrder);
+
+        // ajouter un notification is-primary dans la class en même temps que je clic dessus
+    
+        $.ajax({
+            url : "index.php",
+            type : 'GET',
+            data : 'is_ajax=true&ctrl=order&action=getMessageFromOrder&params=' + idOrder,
+            dataType : 'html',
+            success : function(data){console.log(data);
+                $('#orderMessage').empty().hide();
+                $('#orderMessage').append(data);
+                $('#orderMessage').fadeIn(2000);
+               
+            }
+            // error : function(result, state, error){
+
+            // }
+
+        })
+        
+    });
 
 })
+
+
