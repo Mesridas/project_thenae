@@ -29,7 +29,7 @@
         <button class="tile is-child box" value="2">En cours</button>
         <button class="tile is-child box" value="3">Achevée(s)</button>
     </div>
-    <div class="tile  is-3 is-primary is-vertical is-parent">
+    <div id="lastorders" class="tile  is-3 is-primary is-vertical is-parent">
     <?php foreach($orders as $order){
         echo '
         <div class="tile is-child box">

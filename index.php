@@ -1,12 +1,32 @@
 <?php
 session_start();
 
+############ INFOS ROUTEUR ##############
+$ctrl = 'HomeController';
+if(isset($_GET['ctrl'])) {
+  $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
+}
+
+$method = 'index';
+if(isset($_GET['action'])) {
+  $method = $_GET['action'];
+}
+
+// Permet de ne pas afficher toute la page html mais juste ce qui est nécessaire pour la requête Ajax
+$is_ajax = false;
+if(isset($_GET['is_ajax']) || isset($_POST['is_ajax'])) {
+  $is_ajax = true;
+}
+
   require_once 'config/ini.php';
   require_once 'vendor/autoload.php';
-  require 'vendor/inc/header.php';
 
-  if(isset($ctrl) != 'admin'){
-    require 'vendor/inc/navbar.php';  
+  if (!$is_ajax) {
+    require 'vendor/inc/header.php';
+
+    if(isset($ctrl) != 'admin'){
+      require 'vendor/inc/navbar.php';  
+    }
   }
     
    
@@ -34,16 +54,6 @@ session_start();
 //   }
 
 ############ ROUTEUR ##############
-  $ctrl = 'HomeController';
-  if(isset($_GET['ctrl'])) {
-    $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
-  }
-
-  $method = 'index';
-  if(isset($_GET['action'])) {
-    $method = $_GET['action'];
-  }
-
   // try {
     
     if(class_exists($ctrl)) {
@@ -73,7 +83,11 @@ session_start();
 
           if(!empty($_GET['id'])) {
             $controller->$method($_GET['id']);
-          } else {
+          } else if(!empty($_GET['params'])) {
+
+            echo $controller->$method($_GET['params']); 
+                 
+            } else {
             $controller->$method();
           }
 
@@ -95,5 +109,6 @@ session_start();
 
 // #############FIN ROUTEUR##########
 
-
-require 'vendor/inc/footer.php'; 
+if (!$is_ajax) {
+  require 'vendor/inc/footer.php'; 
+}

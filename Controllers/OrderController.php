@@ -56,9 +56,46 @@ class OrderController {
 
     }
 
+    public function getLastOrdersBy($statut){
 
     
+        try{
+            
+    
+            $model = new OrdersModel();
+            $datas = $model->readOrdersBy($statut);
+            $orders = [];
+    
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $orders[] = new Orders($data);
+                }
+            }
+    
+        }catch(PDOException $e){
+    
+        throw new Exception($e->getMessage(), 0 , $e);
+    
+        }
+    
+        $result = '';
+    
+        foreach($orders as $order){
+    
+            $result .= '
+            <div class="tile is-child box">
+                <p class="title">'.$order->getCustomer_name().'</p>
+                <p class="subtitle">'.$order->getCustomer_email().'</p>
+                <p class="subtitle">Numéro de commande :'.$order->getId().'</p>
+            </div>';
+        }
+        return $result;
+    
+    }
+    
+// public function getMessageFromOrder($order_id){
 
+// }
 
 
 }
