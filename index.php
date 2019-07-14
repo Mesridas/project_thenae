@@ -83,9 +83,17 @@ if(isset($_GET['is_ajax']) || isset($_POST['is_ajax'])) {
 
           if(!empty($_GET['id'])) {
             $controller->$method($_GET['id']);
+
+            #Pour gérer le changement d'état de la commande dans l'AJAX
+            if(!empty($_GET['params'])){
+              $controller->$method($_GET['params'], $_GET['id']); 
+            }   
+
           } else if(!empty($_GET['params'])) {
 
             echo $controller->$method($_GET['params']); 
+
+
                  
             } else {
             $controller->$method();

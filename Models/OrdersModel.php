@@ -168,7 +168,30 @@
 
 
 
+        public function update($params, $id){
 
+            try {
+
+                $query = 'UPDATE `ORDERS` SET `ord_statut` = :newstate WHERE `ord_id` = :id ';     
+              
+                if(($req = $this->getDb()->prepare($query))!==false) {
+         
+                 if($req->bindValue('id', $id, PDO::PARAM_INT) && 
+                 $req->bindValue('newstate', $params)) {
+                       if($req->execute()) {
+                         $res = $req->rowCount();
+                         $req->closeCursor();
+                         return $res;
+                       }
+                     }
+                   }
+                   return false;
+
+            } catch(PDOException $e) {
+                 throw new Exception('Can not read from the database', 10, $e);
+            } 
+        
+        }
 
 
     }

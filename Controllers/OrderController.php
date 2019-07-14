@@ -34,9 +34,6 @@ class OrderController {
                 }else{
                     $datas = $this->_model->addOrder($request, $userExist);
                 }
-                echo '<pre>';
-                var_dump($userExist);
-                echo '</pre>';
 
             }
             
@@ -57,7 +54,6 @@ class OrderController {
     }
 
     public function getLastOrdersBy($statut){
-
     
         try{
             
@@ -117,4 +113,26 @@ class OrderController {
     }
 
 
+    public function updateStatut($id){
+
+        $params = $_GET['params'];
+
+        try{
+            
+            $newState = $this->_model->update($params, $id); 
+
+            if($newState){
+                header('Location: ./index.php?ctrl=admin&action=manageForm&id='.$id.'' );
+            }
+    
+        }catch(PDOException $e){
+    
+            throw new Exception($e->getMessage(), 0 , $e);
+    
+        }
+
+    }
+
+
+    
 }

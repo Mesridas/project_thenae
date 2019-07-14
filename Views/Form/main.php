@@ -25,7 +25,7 @@
 <div class="tile is-ancestor">
   <!-- All other tile elements -->
     <div class="tile is-2 is-vertical is-parent">
-        <button class="tile is-child box" value="1">En attente</button>
+        <button class="tile is-child box <?php if($_GET['action'] = 'manageForm'){ echo 'notification is-primary';} ?>" value="1">En attente</button>
         <button class="tile is-child box" value="2">En cours</button>
         <button class="tile is-child box" value="3">Achevée(s)</button>
     </div>
@@ -47,10 +47,10 @@
         <div  class="tile is-child box content">
             <p class="title ">Message</p>
             <p id="orderMessage">Veuillez selectionner une commande.</p>
-            <div class="buttons is-centered "> 
+            <div id="stateorder" class="buttons is-centered "> 
                 <a class="button is-rounded is-small">Répondre </a>
-                <a class="button is-rounded is-small">Marqué "En cours"</a>
-                <a class="button is-rounded is-small">Marqué "Achevé"</a>
+                <a class="button is-rounded is-small">Marquer "En cours"</a>
+                <a class="button is-rounded is-small">Marquer "Achevé"</a>
             </div>
         </div>
     </div>
