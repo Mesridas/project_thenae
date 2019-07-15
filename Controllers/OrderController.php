@@ -102,8 +102,29 @@ class OrderController {
 
             }
         
-           return $result = '<p id="orderMessage">'.$order->getContent().'</p>'; 
+           return $result = '<p>'.$order->getContent().'</p>'; 
 
+    
+        }catch(PDOException $e){
+    
+            throw new Exception($e->getMessage(), 0 , $e);
+    
+        }
+    }
+
+    // Renvoie un objet json avec tous le détail de la commande
+    public function getObjectFromOrder($order_id){
+
+        $order_id = $_GET['params'];
+        try{
+            
+            $orderData = $this->_model->readOrderFrom($order_id);
+        
+            return $result = json_encode($orderData);
+
+            // var_dump($result);
+
+        //    return $result ;
     
         }catch(PDOException $e){
     
@@ -122,6 +143,25 @@ class OrderController {
             $newState = $this->_model->update($params, $id); 
 
             if($newState){
+                header('Location: ./index.php?ctrl=admin&action=manageForm&id='.$id.'' );
+            }
+    
+        }catch(PDOException $e){
+    
+            throw new Exception($e->getMessage(), 0 , $e);
+    
+        }
+
+    }
+
+    public function delete($id){
+
+
+        try{
+            
+            $endingOrder = $this->_model->delete($id); 
+
+            if($endingOrder){
                 header('Location: ./index.php?ctrl=admin&action=manageForm&id='.$id.'' );
             }
     

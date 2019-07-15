@@ -6,30 +6,12 @@
 
 <div class="column columns is-10 is-multiline">
 
-
-<!-- <section class="column is-2 has-background-grey-light tile">
-</section>
-<section class="column is-3 has-background-grey-lighter tile">
-</section>
-<section class="column is-6 has-background-grey-dark tile">
-</section> -->
-<?php 
-
-// echo '<pre>';
-// var_dump($orders);
-// echo '</pre>';
-
- ?>
-
-
 <div class="tile is-ancestor">
-  <!-- All other tile elements -->
     <div class="tile is-2 is-vertical is-parent">
         <button class="tile is-child box <?php if($_GET['action'] = 'manageForm'){ echo 'notification is-primary';} ?>" value="1">En attente</button>
         <button class="tile is-child box" value="2">En cours</button>
         <button class="tile is-child box" value="3">Achevée(s)</button>
     </div>
-    
     <div id="lastorders" class="tile  is-3 is-vertical is-parent">
     <?php foreach($orders as $order){
         echo '
@@ -40,17 +22,12 @@
         </div>';
     } ?>
     </div>
-
-    <!-- Récuperer l'id de mon client en onclick  et faire une afficher mon message where l'id de 
-    de mon message est egal a l'id du client et de la commande du onclick aussi -->
     <div class="tile is-6 is-danger is-parent">
         <div  class="tile is-child box content">
             <p class="title ">Message</p>
             <p id="orderMessage">Veuillez selectionner une commande.</p>
             <div id="stateorder" class="buttons is-centered "> 
-                <a class="button is-rounded is-small">Répondre </a>
-                <a class="button is-rounded is-small">Marquer "En cours"</a>
-                <a class="button is-rounded is-small">Marquer "Achevé"</a>
+
             </div>
         </div>
     </div>

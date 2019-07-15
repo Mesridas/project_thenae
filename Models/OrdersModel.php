@@ -134,6 +134,39 @@
             }
         }
 
+        public function readOrderFrom($order_id){
+
+            try{
+
+                $query = 'SELECT `ord_id` AS `id`, `ord_content` AS `content`, `ord_statut` AS `statut`, `ord_customer_fk` AS `customer_id`, `cus_name` AS `customer_name`, `cus_email` AS `customer_email`, `cus_id` 
+                FROM `ORDERS`
+                LEFT JOIN `CUSTOMERS` ON `ord_customer_fk` = `cus_id`
+                WHERE `ord_id` = :id';
+
+                    if(($this->_req = $this->getDb()->prepare($query)) !== false){
+
+                        if($this->_req->bindValue('id', $order_id, PDO::PARAM_INT)){
+
+                            if($this->_req->execute()) {
+
+                                $datas = $this->_req->fetchAll(PDO::FETCH_ASSOC);
+
+                                return $datas;
+
+                            }
+                        }
+
+                    }
+
+                    return false;
+
+
+            }catch(PDOException $e){
+
+                throw new Exception($e->getMessage(), 0, $e);
+            }
+        }
+
         public function readMessageFrom($idOrder){
 
             try{
@@ -192,6 +225,33 @@
             } 
         
         }
+
+        public function delete($id){
+
+            try {
+
+                $query = 'DELETE FROM `ORDERS` WHERE `ord_id` = :id ';    
+              
+                if(($req = $this->getDb()->prepare($query))!==false) {
+         
+                    if($req->bindValue('id', $id, PDO::PARAM_INT)){  
+                    
+                        if($req->execute()) {
+                            $res = $req->rowCount();
+                            $req->closeCursor();
+                            return $res;
+                        }
+                    }
+                }
+                
+                return false;
+
+            } catch(PDOException $e) {
+                 throw new Exception('Can not read from the database', 10, $e);
+            } 
+        
+        }
+       
 
 
     }
