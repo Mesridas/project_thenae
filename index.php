@@ -25,7 +25,7 @@ if(isset($_GET['is_ajax']) || isset($_POST['is_ajax'])) {
     require 'vendor/inc/header.php';
 
     if(isset($ctrl) == 'HomeController'){
-      require 'vendor/inc/navbar.php';  
+      // require 'vendor/inc/navbar.php';  
     }
   }
     

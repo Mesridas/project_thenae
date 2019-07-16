@@ -19,11 +19,27 @@ class HomeController {
         
     public function index(){
 
+      self::navigation();
       self::landing();
       self::section();
       self::galerie();
       self::carousel();
       self::form();
+    }
+
+    private function navigation(){
+
+        $this->_model = new EventsModel;
+        $datas = $this->_model->readOne();
+
+        if(!empty($datas) > 0 ){
+
+            $event = new Events($datas);
+            include './vendor/inc/navbar_event.php';       
+        }else{
+            include './vendor/inc/navbar.php';            
+        }
+        
 
     }
 

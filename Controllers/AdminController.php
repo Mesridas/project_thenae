@@ -49,6 +49,10 @@ class AdminController {
         self::formulaire($status);
     }
 
+    public function manageEvent(){
+        self::evenement();
+    }
+
     public function editSection($id){
         self::edit($id);
     }
@@ -363,7 +367,26 @@ class AdminController {
 
     }
 
+    public function evenement(){
+        try{
 
+            $this->_model = new EventsModel;
+            $datas = $this->_model->readAll();
+            $events = [];
+
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                $events[] = new Events($data);
+                }
+            }
+
+        include './Views/Event/index.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
 
 
 }

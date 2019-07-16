@@ -3,7 +3,7 @@ $(document).ready(function(){
     // var idOrder = ($('.selectedOrder').attr('id'));  
         
     $("button").click(function(){
-        // var idStatut = ($(this).val());
+
         var idStatut = ($(this).val());
 
         $('.tile').removeClass("notification");    
@@ -28,9 +28,6 @@ $(document).ready(function(){
                 $('#lastorders').fadeIn(2000);
                
             }
-            // error : function(result, state, error){
-
-            // }
 
         })
         

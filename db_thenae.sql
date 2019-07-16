@@ -115,10 +115,10 @@ DROP TABLE IF EXISTS `EVENT`;
 CREATE TABLE IF NOT EXISTS `EVENT`(
     `eve_id` INT(11) NOT NULL AUTO_INCREMENT,
     `eve_text` VARCHAR(255) NOT NULL,
-    `eve_date` DATE NOT NULL,
-    `eve_location_event` VARCHAR(255) NOT NULL,
-    `eve_img_ban` VARCHAR(255) NOT NULL,
-    `eve_user_fk` INT(11) NOT NULL,
+    `eve_date` DATE NULL,
+    `eve_location_event` VARCHAR(255) NULL,
+    `eve_img_ban` VARCHAR(255) NULL,
+    `eve_user_fk` INT(11) NULL,
     PRIMARY KEY (`eve_id`),
     KEY(`eve_user_fk`)    
 )ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
@@ -204,7 +204,7 @@ ALTER TABLE `USERS` ADD CONSTRAINT `users_roles_fk` FOREIGN KEY (`use_role_fk`) 
 
 ALTER TABLE `USERS` ADD CONSTRAINT `users_medias_fk` FOREIGN KEY (`use_picture_fk`) REFERENCES `thenae_creations`.`MEDIAS`(`med_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
-ALTER TABLE `EVENT` ADD CONSTRAINT  `event_users_fk`FOREIGN KEY (`eve_user_fk`) REFERENCES `thenae_creations`.`USERS`(`use_id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `EVENT` ADD CONSTRAINT  `event_users_fk`FOREIGN KEY (`eve_user_fk`) REFERENCES `thenae_creations`.`USERS`(`use_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE `CAROUSEL` ADD CONSTRAINT  `carousel_categorie_fk` FOREIGN KEY (`car_categorie_id`) REFERENCES `thenae_creations`.`CATEGORIES`(`cat_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 

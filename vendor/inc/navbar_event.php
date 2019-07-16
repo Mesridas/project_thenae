@@ -18,6 +18,16 @@
           </div>
         </div>
       </div>
+<?php 
+if(($event->getId()) !== null){  
+     echo' <div class="row">
+        <div class="col-12 text-white marquee visual-aid"> 
+	        <span>'.$event->getText().'</span>
+        </div>
+      </div>';
+
+  } 
+?>
     </div>
 </nav>
 

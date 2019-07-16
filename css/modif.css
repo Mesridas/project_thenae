@@ -1,6 +1,6 @@
-body{
-    /* background: #e6f5f7; */
-}
+/* body{
+    background: #e6f5f7;
+} */
 #galery{
    background: #e6f5f7; 
 }
@@ -14,6 +14,40 @@ html{
     height: 2rem;
 }
 
+/*Event section in nav bar */
+.visual-aid {
+	/* Styles for visual aid. */
+	font-size: 1em;
+	height: 1.2em;
+	/* background: black; */
+	/* color: white; */
+	width: 100%;
+	margin: 20px auto;
+	position: relative;
+}
+
+.marquee {
+	overflow: hidden;
+}
+.marquee > * {
+	white-space: nowrap;
+	position: absolute;
+	animation: marquee 30s linear 0s infinite;
+}
+
+@keyframes marquee {
+	0% {
+		left: 100%;
+		transform: translateX(0%);
+	}
+	100% {
+		left: 0%;
+		transform: translateX(-100%);
+	}
+}
+
+
+
 /* Landing section image */
 
 header{
@@ -21,7 +55,7 @@ header{
 }
 
 header.masthead{
-    background: -webkit-gradient(linear,left bottom,left top,from(#ffffff),to(#17a2b8));   
+    background: -webkit-gradient(linear,left bottom,left top,from(#00000008),to(#17a2b8));   
 }
 header.masthead .bg-circle{
     background: linear-gradient(0deg,#0062ccd4 0,#00ccb266 100%);

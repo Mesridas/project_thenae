@@ -27,7 +27,7 @@
       <link rel="stylesheet" type="text/css" href="css/util.css">
       <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Personnalisation des templates- Modification du CSS  -->
-    <link rel="stylesheet" href="css/modif.css">
+    <link rel="stylesheet" type="text/css" href="css/modif.css">
 
   </head>
 
