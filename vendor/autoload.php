@@ -17,6 +17,7 @@ function loadClass($class) {
   }
 }
 
+
 spl_autoload_register('loadController');
 spl_autoload_register('loadModel');
 spl_autoload_register('loadClass');
