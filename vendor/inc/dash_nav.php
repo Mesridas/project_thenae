@@ -1,5 +1,4 @@
 <aside class="column is-2 is-fullheight section has-background-white">
-        <!-- <p class="has-text-link is-size-2">Thenae</p> -->
         <p class="has-text-link is-one-quarter">Thenae</p>
           <p class="menu-label">
           General
@@ -12,11 +11,11 @@
           Administration
         </p>
         <ul class="menu-list">
-          <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'Gallery_main' ? 'is-active' : '' ?>">Présentation - Section </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageGalerie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes créations - Galerie </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageCategorie" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Plus en détails - Carousels </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageForm&id=1" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Mes demandes clients </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageEvent" class="<?php echo $page == 'Gallery_sac' ? 'is-active' : '' ?>">Bannières évènemments  </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageSection" >Présentation - Section </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageGalerie" >Mes créations - Galerie </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageCategorie" >Plus en détails - Carousels </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageForm&id=1" >Mes demandes clients </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageEvent" >Bannières évènemments  </a></li>
         </ul>
         <footer class="card-footer logout">
           <a href=".?logout" class="card-footer-item button is-white">

@@ -1,12 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connexion | Thenae</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head> -->
 <?php   require 'vendor/inc/dash_head.php'; ?>  
 
   
@@ -16,7 +7,6 @@
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
 
-          <!-- <h1 class="title has-text-danger">Thenae Créations</h1> -->
           <h1 class="title has-text-danger"><img src="img/logo.png" alt="Logo" width="250" height="250"></h1>
           <p class="subtitle has-text-dark">Connexion à l'espace d'administration</p>
           <div class="card is-shadowless">

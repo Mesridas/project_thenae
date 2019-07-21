@@ -43,7 +43,6 @@ class SectionController {
 
  
             $files = $_FILES['mon_image'];
-            // var_dump($files['error']);
             $files['name'] = basename($files['name']);
             $ext = strtolower(substr(strrchr($files['name'], '.'), 1) );
             $allow_ext = array( 'jpg' , 'jpeg' , 'gif' , 'png'); 
@@ -91,6 +90,7 @@ class SectionController {
     public function update($id, $request){
 
         try{
+            
             $files = $_FILES['mon_image_changed'];
 
             if(empty($request['title'])){

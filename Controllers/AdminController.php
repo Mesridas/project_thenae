@@ -73,15 +73,6 @@ class AdminController {
     }
 
     private function landingConnection(){
-        try{
-
-            $this->_model = new LoginModel;
-            
-        }catch(PDOException $e){
-      
-            throw new Exception($e->getMessage(), 0 , $e);
-      
-        }
 
         #GERER AFFICHAGE MESSAGE ERREUR CONNECTION        
         // if(isset($_GET['_err'])){
@@ -135,18 +126,21 @@ class AdminController {
                                 $_SESSION[APP_TAG]['connected'] = serialize($user);
 
                                 if($user){
-                                    // header('Location: ./index.php?ctrl=admin&action=dashboard');
                                     include './Views/Login/welcome.php';
                                 }else{
                                 header('Location: ./index.php?ctrl=admin&action=login');
                                 exit;
                                 }
+
+                            }else{
+
+                                header('Location: ./index.php?ctrl=admin&action=login');
+                                exit;
                             } 
                     }else{
 
                         header('Location: ./index.php?ctrl=admin&action=login');
                         exit;
-                        //  include './Views/Login/index.php';
                     } 
 
             }else{
@@ -260,12 +254,10 @@ class AdminController {
 
 
     private function delete($id){
-    // private function delete($id, $ModelName){
 
         try{
             
             $this->_model = new GalleriesModel;
-            // $this->_model = new $ModelName.'Model';
 
             $del = $this->_model->delete($id);
     

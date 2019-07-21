@@ -15,6 +15,8 @@
       <th>Titre</th>
       <th><abbr title="Content">Contenu</abbr></th>
       <th><abbr title="Image">Image</abbr></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 

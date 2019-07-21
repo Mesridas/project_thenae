@@ -46,7 +46,6 @@ class CarouselController {
     #Fonction pour ajouter une image principale pour un carousel
     public function add($request){
 
-
         #Fonction qui génére un id unique
         function uniqidReal($lenght = 13) {
 
@@ -55,7 +54,7 @@ class CarouselController {
             } elseif (function_exists("openssl_random_pseudo_bytes")) {
                 $bytes = openssl_random_pseudo_bytes(ceil($lenght / 2));
             } else {
-                throw new Exception("no cryptographically secure random function available");
+                throw new Exception("l'identifiant aléatoire unique n'a pas pu être généré");
             }
             return substr(bin2hex($bytes), 0, $lenght);
         }
@@ -72,7 +71,6 @@ class CarouselController {
                 // #Je stocke l'image dans le dossier
                 if(in_array($ext, $allow_ext)){
                     $folder = './img/carousels/visible/'.$request['cat_number'];
-                    // $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$request['cat_number'].$files['name']);
                     $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
 
 
@@ -155,7 +153,7 @@ class CarouselController {
 
 
 
-    #Function qui supprime l'image principale
+    #Function qui supprime l'image détaillé
     public function deleteDetails($id, $request){
 
         try{

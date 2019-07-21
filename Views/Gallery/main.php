@@ -14,6 +14,8 @@
       <th><abbr title="id">#</abbr></th>
       <th>Titre de l'image</th>
       <th><abbr title="Image">Image</abbr></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -27,8 +29,8 @@
         <td><figure class="image is-48x48">
           <img src="img/galeries/<?php echo $galerie->getImage() ;?>" alt="Placeholder image">
         </figure></td>
-        <td><a href="index.php?ctrl=admin&action=editGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Modifier cette galerie</a></td>
-        <td><a href="index.php?ctrl=admin&action=deleteGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Supprimer cette galerie</a></td>
+        <td><a href="index.php?ctrl=admin&action=editGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Modifier cette image</a></td>
+        <td><a href="index.php?ctrl=admin&action=deleteGalerie&id=<?php echo $galerie->getId()?>" class=" btn button-info ">Supprimer cette image</a></td>
         </tr>
     <?php 
     }
