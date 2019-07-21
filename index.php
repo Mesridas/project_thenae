@@ -28,10 +28,7 @@ if(isset($_GET['is_ajax']) || isset($_POST['is_ajax'])) {
       // require 'vendor/inc/navbar.php';  
     }
   }
-    
-   
-
-  
+      
 
 ############ MESSAGES #############
 

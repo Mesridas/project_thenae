@@ -26,7 +26,7 @@
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Une adresse mail valide est requise : ex@abc.xyz">
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Une adresse mail valide est requise : exemple@abc.fr">
 					<span class="label-input100">Email</span>
 					<input class="input100" type="text" name="email" placeholder="Renseignez votre email" value="<?php echo isset($_SESSION['thenae']['data_memory']['email']) ? $_SESSION['thenae']['data_memory']['email'] : ''; ?>"  required>
 					<span class="focus-input100"></span>
@@ -34,7 +34,8 @@
 
 				<div class="wrap-input100 validate-input" data-validate = "Un message est requis">
 					<span class="label-input100">Message</span>
-					<textarea class="input100" name="message" placeholder="Contactez moi pour une commande, où en savoir plus sur mon travail" <?php echo isset($_SESSION['thenae']['data_memory']['message']) ? $_SESSION['thenae']['data_memory']['message'] : ''; ?>></textarea>
+					<textarea class="input100" name="message" placeholder="Contactez moi pour une commande, où en savoir plus sur mon travail"><?php echo isset($_SESSION['thenae']['data_memory']['message']) ? $_SESSION['thenae']['data_memory']['message'] : '' ; ?>
+					</textarea>
 					<span class="focus-input100"></span>
 				</div>
 

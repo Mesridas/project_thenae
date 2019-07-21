@@ -40,7 +40,6 @@ class HomeController {
             include './vendor/inc/navbar.php';            
         }
         
-
     }
 
     private function landing(){

@@ -89,7 +89,7 @@ class SectionController {
     }
 
     public function update($id, $request){
-       
+
         try{
             $files = $_FILES['mon_image_changed'];
 
@@ -114,7 +114,7 @@ class SectionController {
                 $request['desc']= $section->getText();
             }
 
-            if(empty($files)){
+            if(empty($files['name']) && $files['name'] !== '0'){
 
                 $datas = $this->_model->readOne($id);
 
@@ -123,6 +123,7 @@ class SectionController {
                 }
 
                 $files['name']= $section->getImage();
+                
             }else{
 
                 $files['name'] = basename($files['name']);

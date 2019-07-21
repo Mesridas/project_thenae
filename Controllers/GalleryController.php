@@ -75,6 +75,7 @@ class GalleryController {
        
         try{
             $files = $_FILES['mon_image_galerie_edit'];
+            
             if(empty($request['title_gal'])){
 
                 $datas = $this->_model->readOne($id);
@@ -86,7 +87,7 @@ class GalleryController {
                 $request['title_gal']= $galerie->getData_title();
             }
 
-            if(empty($files)){
+            if(empty($files['name']) && $files['name'] !== '0'){
 
                 $datas = $this->_model->readOne($id);
 
