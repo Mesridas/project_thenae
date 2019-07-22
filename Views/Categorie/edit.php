@@ -22,7 +22,7 @@
         <tr>
         <th><?php echo $categorie->getId()?></th>
         <td><?php echo $categorie->getName()?></td>
-        <td><a href="index.php?ctrl=categorie&action=edit&id=<?php echo $categorie->getId()?>" class=" btn button-info ">Modifier les images de cette catégorie</a></td>
+        <td><a href="index.php?ctrl=admin&action=manageCarousel&id=<?php echo $categorie->getId()?>" class=" btn button-info ">Modifier les images de cette catégorie</a></td>
         <td><a href="index.php?ctrl=categorie&action=delete&id=<?php echo $categorie->getId()?>" class=" btn button-info ">Supprimer la catégorie </a></td>
         </tr>
   </tbody>

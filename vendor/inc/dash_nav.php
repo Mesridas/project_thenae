@@ -11,11 +11,11 @@
           Administration
         </p>
         <ul class="menu-list">
-          <li><a href="index.php?ctrl=admin&action=manageSection" >Présentation - Section </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageGalerie" >Mes créations - Galerie </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageCategorie" >Plus en détails - Carousels </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageForm&id=1" >Mes demandes clients </a></li>
-          <li><a href="index.php?ctrl=admin&action=manageEvent" >Bannières évènemments  </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageSection" class="<?php echo $page == 'section' ? 'is-active' : '' ?>" >Présentation - Section </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageGalerie" class="<?php echo $page == 'galerie' ? 'is-active' : '' ?>" >Mes créations - Galerie </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageCategorie" class="<?php echo $page == 'categorie' ? 'is-active' : '' ?>" >Plus en détails - Carousels </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageForm&id=1" class="<?php echo $page == 'formulaire' ? 'is-active' : '' ?>" >Mes demandes clients </a></li>
+          <li><a href="index.php?ctrl=admin&action=manageEvent" class="<?php echo $page == 'event' ? 'is-active' : '' ?>" >Bannières évènemments  </a></li>
         </ul>
         <footer class="card-footer logout">
           <a href=".?logout" class="card-footer-item button is-white">

@@ -16,11 +16,10 @@ html{
 
 /*Event section in nav bar */
 .visual-aid {
-	/* Styles for visual aid. */
+
 	font-size: 1em;
 	height: 1.2em;
-	/* background: black; */
-	/* color: white; */
+
 	width: 100%;
 	margin: 20px auto;
 	position: relative;

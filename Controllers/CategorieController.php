@@ -99,20 +99,22 @@ class CategorieController {
 
     public function edit($id){
 
-        try{
+        $page = 'categorie';
 
-            $datas = $this->_model->readOne($id);
+            try{
 
-            if(count($datas) > 0 ){
-            $categorie = new Categories($datas);
-            }
-            
-            include './Views/Categorie/edit.php';
+                $datas = $this->_model->readOne($id);
 
-        }catch(PDOException $e){
- 
-            throw new Exception($e->getMessage(), 0 , $e);
-        }
+                if(count($datas) > 0 ){
+                $categorie = new Categories($datas);
+                }
+                
+                include './Views/Categorie/edit.php';
+
+            }catch(PDOException $e){
+                throw new Exception($e->getMessage(), 0 , $e);
+            }         
+
     }
     
     public function update($id, $request){

@@ -25,7 +25,9 @@ class HomeController {
       self::galerie();
       self::carousel();
       self::form();
+      
     }
+
 
     private function navigation(){
 

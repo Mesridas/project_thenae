@@ -30,19 +30,19 @@ class AdminController {
     }
 
     public function manageSection(){
-        self::section();
-        }
+        self::section();  
+    }
 
     public function manageGalerie(){
         self::galerie();
     }
 
-    public function manageCarousel($id){
+    public function manageCarousel($id){   
         self::carousel($id);
     }
 
     public function manageCategorie(){
-        self::categorie();
+        self::categorie();    
     }
 
     public function manageForm($status){
@@ -50,11 +50,11 @@ class AdminController {
     }
 
     public function manageEvent(){
-        self::evenement();
+        self::evenement();     
     }
 
     public function editSection($id){
-        self::edit($id);
+        self::edit($id); 
     }
 
     public function editGalerie($id){
@@ -113,7 +113,7 @@ class AdminController {
             
             extract($post);
 
-            if(empty($_SESSION[APP_TAG]['user'])){
+            if(empty($_SESSION[APP_TAG]['connected'])){
 
                     if(!empty($login) && !empty($password)){
 
@@ -123,20 +123,23 @@ class AdminController {
 
                                 $user = new Login($userCheck);
 
-                                $_SESSION[APP_TAG]['connected'] = serialize($user);
+
 
                                 if($user){
-                                    include './Views/Login/welcome.php';
+                                    
+                                    $_SESSION[APP_TAG]['connected'] = serialize($user);
+
+                                    header('Location: ./index.php?ctrl=admin&action=dashboard');
+
                                 }else{
-                                header('Location: ./index.php?ctrl=admin&action=login');
-                                exit;
+                                    header('Location: ./index.php?ctrl=admin&action=login');
+                                    exit;
                                 }
-
                             }else{
-
                                 header('Location: ./index.php?ctrl=admin&action=login');
                                 exit;
-                            } 
+                                } 
+                   
                     }else{
 
                         header('Location: ./index.php?ctrl=admin&action=login');
@@ -144,7 +147,7 @@ class AdminController {
                     } 
 
             }else{
-                include './Views/Login/welcome.php';
+                header('Location: ./index.php?ctrl=admin&action=dashboard');
             }
 
         }catch(PDOException $e){
@@ -158,19 +161,14 @@ class AdminController {
     private function mainMenu(){
     
         $page = 'Dashboard';
-    
-        # VERIF user connecté
-        if(empty($_SESSION[APP_TAG]['connected'])) {
-        header('Location:../login.php?_err=403');
-        exit;
-        }else{
+
         include './Views/Login/welcome.php';
 
-        }
     }
 
     private function section(){
 
+        $page = 'section';
         try{
 
             $this->_model = new SectionsModel;
@@ -183,7 +181,9 @@ class AdminController {
                 }
             }
 
-            include './Views/Section/main.php';
+            include './Views/Section/main.php';  
+
+            
 
         }catch(PDOException $e){
  
@@ -194,6 +194,7 @@ class AdminController {
 
     private function edit($id){
 
+        $page = 'section';
         try{
             $this->_model = new SectionsModel;
             $datas = $this->_model->readOne($id);
@@ -213,6 +214,7 @@ class AdminController {
 
     private function modify($id){
 
+        $page = 'galerie';
         try{
             $this->_model = new GalleriesModel;
             $datas = $this->_model->readOne($id);
@@ -232,6 +234,9 @@ class AdminController {
 
 
     private function galerie(){
+
+        $page = 'galerie';
+
         try{
 
             $this->_model = new GalleriesModel;
@@ -276,6 +281,8 @@ class AdminController {
 
     private function carousel($id){
 
+        $page = 'categorie';
+
         try{
 
             $this->_model = new CarouselsModel;
@@ -311,6 +318,8 @@ class AdminController {
 
     private function categorie(){
 
+        $page = 'categorie';
+
         try{
 
             $this->_model = new CategoriesModel;
@@ -337,6 +346,8 @@ class AdminController {
 
     private function formulaire($status){
 
+        $page = 'formulaire';
+
         try{
 
             $status = 1;
@@ -360,6 +371,9 @@ class AdminController {
     }
 
     public function evenement(){
+
+        $page = 'event';
+
         try{
 
             $this->_model = new EventsModel;

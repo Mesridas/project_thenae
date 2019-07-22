@@ -106,29 +106,31 @@ class CarouselController {
     #Function pour voir les images rattachés à l'image principale
     public function manageMe($id){
 
-        try{
+        $page = 'categorie';
 
-            $datas = $this->_model->readOne($id);
-            if(count($datas) > 0 ){
-            $carousel = new Carousels($datas);
-            }
+            try{
 
-            
-            $img_details = $this->_model->readDetails($carousel->getLocation());
-            if(count($img_details) > 0 ){
-                foreach($img_details as $img_detail){
-                    $hidden[] = new Carousels($img_detail);                    
+                $datas = $this->_model->readOne($id);
+                if(count($datas) > 0 ){
+                $carousel = new Carousels($datas);
                 }
 
-            }
+                
+                $img_details = $this->_model->readDetails($carousel->getLocation());
+                if(count($img_details) > 0 ){
+                    foreach($img_details as $img_detail){
+                        $hidden[] = new Carousels($img_detail);                    
+                    }
+
+                }
+                
+                include './Views/Carousel/edit.php';
+
+            }catch(PDOException $e){
             
-            include './Views/Carousel/edit.php';
-
-        }catch(PDOException $e){
- 
-            throw new Exception($e->getMessage(), 0 , $e);
-        }
-
+                throw new Exception($e->getMessage(), 0 , $e);
+            }
+        
     }
 
 

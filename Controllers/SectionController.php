@@ -69,23 +69,23 @@ class SectionController {
         }
     }
     
-    public function edit($id){
+    // public function edit($id){
  
-        try{
+    //     try{
             
-            $datas = $this->_model->readOne($id);
+    //         $datas = $this->_model->readOne($id);
 
-            if(count($datas) > 0 ){
-            $section = new Sections($datas);
-            }
+    //         if(count($datas) > 0 ){
+    //         $section = new Sections($datas);
+    //         }
             
-            include './Views/Section/edit.php';
+    //         include './Views/Section/edit.php';
 
-        }catch(PDOException $e){
+    //     }catch(PDOException $e){
  
-            throw new Exception($e->getMessage(), 0 , $e);
-        }
-    }
+    //         throw new Exception($e->getMessage(), 0 , $e);
+    //     }
+    // }
 
     public function update($id, $request){
 

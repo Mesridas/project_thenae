@@ -55,23 +55,23 @@ class LoginController {
 
     }
 
-   public function welcome(){
+  //  public function welcome(){
     
-    // session_start();
+  //   // session_start();
   
-    $page = 'Dashboard';
+  //   $page = 'Dashboard';
   
-    # VERIF user connecté
-    if(empty($_SESSION[APP_TAG]['connected'])) {
-      header('Location:../login.php?_err=403');
-      exit;
-    }else{
-    include './Views/Login/welcome.php';
+  //   # VERIF user connecté
+  //   if(empty($_SESSION[APP_TAG]['connected'])) {
+  //     header('Location:../login.php?_err=403');
+  //     exit;
+  //   }else{
+  //   include './Views/Login/welcome.php';
 
-    }
+  //   }
   
 
-  }
+  // }
 
   // public function userConnect($post){
 
