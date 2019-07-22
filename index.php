@@ -41,7 +41,7 @@ if(isset($_GET['logout'])){
 #Condition pour afficher le site et l'accès à l'espace admin + sa connexion et empêcher tous les utilisateurs non connecté d'acceder au panel admin
 if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminController' && $method === 'login') || ($ctrl === 'AdminController' && $method ==='check')){
 
-  try {
+  // try {
     
     if(class_exists($ctrl)) {
       $controller = new $ctrl;
@@ -97,11 +97,11 @@ if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminCont
       header('Location: 3');
       exit;
     }
-  } catch(Exception $e) {
+  // } catch(Exception $e) {
     
-    header('Location: 500');
-    exit;
-  }
+  //   header('Location: 500');
+  //   exit;
+  // }
 
 }else{
 
@@ -112,7 +112,7 @@ if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminCont
           exit;
       }else{
 
-        try {
+        // try {
     
           if(class_exists($ctrl)) {
             $controller = new $ctrl;
@@ -165,11 +165,11 @@ if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminCont
             exit;
           }
 
-        } catch(Exception $e) {
+        // } catch(Exception $e) {
           
-          header('Location: 500');
-          exit;
-        }
+        //   header('Location: 500');
+        //   exit;
+        // }
       }  
 
 }

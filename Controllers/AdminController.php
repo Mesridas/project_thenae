@@ -34,7 +34,7 @@ class AdminController {
     }
 
     public function manageGalerie(){
-        self::galerie();
+        self::galeriebis();
     }
 
     public function manageCarousel($id){   
@@ -222,6 +222,42 @@ class AdminController {
 
             $this->_model = new GalleriesModel;
             $datas = $this->_model->readAllAdmin();
+            $galeries = [];
+
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $galeries[] = new Galleries($data);
+                }
+            }
+
+            include './Views/Gallery/main.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+    }
+
+    private function galeriebis(){
+
+        $page = 'galerie';
+
+        try{
+
+            $pagination = PAGINATION;
+            // if(!empty($_REQUEST['pagination']) && ctype_digit($_REQUEST['pagination'])) {
+            //   $pagination = $_REQUEST['pagination'];
+            // }
+
+            $currentPage = 1;
+            if(!empty($_GET['page']) && ctype_digit($_GET['page'])) {
+              $currentPage = $_GET['page'];
+            }
+
+            $limit = $pagination*($currentPage-1);            
+
+            $this->_model = new GalleriesModel;
+            $datas = $this->_model->readAllAdminPagination($limit, $pagination);
             $galeries = [];
 
             if(count($datas) > 0 ){

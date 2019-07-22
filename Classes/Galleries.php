@@ -7,6 +7,7 @@ class Galleries {
     private $_image; // à placer dans le href et le src de <img>
     private $_data_lightbox;// relie les images entre elles
     private $_data_title;// titre de l'image
+    private $_nbImages; // Nombre d'images en galerie, sert pour la pagination
 
     public function __construct($datas){
         $this->hydrate($datas);
@@ -35,6 +36,10 @@ class Galleries {
         return $this->_data_title;
     }
 
+    public function getNbImages(){
+        return $this->_nbImages;
+    }
+
 ##################### SETTER's #####################
 
     public function setId($id){
@@ -60,6 +65,11 @@ class Galleries {
 
     public function setData_title($img_title){
         $this->_data_title = $img_title;
+        return $this;
+    }
+
+    public function setNbImages($image_number){
+        $this->_nbImages = $image_number;
         return $this;
     }
 

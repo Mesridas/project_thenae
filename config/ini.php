@@ -3,6 +3,9 @@
 #APP TAG
 define('APP_TAG', 'thenae');
 
+#PAGINATION SETUP
+define('PAGINATION', 9);
+
 #DATABASE
 
 define('DB_ENGINE', 'mysql');
