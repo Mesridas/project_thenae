@@ -108,7 +108,7 @@
                 $query = 'SELECT `ord_id` AS `id`, `ord_content` AS `content`, `ord_statut` AS `statut`, `ord_customer_fk` AS `customer_id`, `cus_name` AS `customer_name`, `cus_email` AS `customer_email`, `cus_id` 
                 FROM `ORDERS`
                 LEFT JOIN `CUSTOMERS` ON `ord_customer_fk` = `cus_id`
-                WHERE `ord_statut` = :state';
+                WHERE `ord_statut` = :state ORDER BY `ord_id` DESC';
 
                     if(($this->_req = $this->getDb()->prepare($query)) !== false){
 

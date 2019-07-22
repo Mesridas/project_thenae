@@ -12,10 +12,6 @@ class HomeModel extends CoreModel {
     }
 
 
-    #Méthode pour lire la landing page
-
-
-
 
 
 }
