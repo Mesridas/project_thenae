@@ -17,15 +17,15 @@ class HomeController {
         }
     }
         
-    public function index(){
+    public function index(){       
 
-      self::navigation();
+      self::navigation();     
       self::landing();
       self::section();
       self::galerie();
       self::carousel();
       self::form();
-      
+    
     }
 
 
@@ -37,11 +37,17 @@ class HomeController {
         if(!empty($datas) > 0 ){
 
             $event = new Events($datas);
-            include './vendor/inc/navbar_event.php';       
+            $nav = 'eventon';
+            include './vendor/inc/navbar_event.php'; 
+            require_once 'config/errormanager.php'; 
+
         }else{
+
+            $nav = 'eventoff';
             include './vendor/inc/navbar.php';            
         }
-        
+
+        // require_once 'config/errormanager.php'; 
     }
 
     private function landing(){

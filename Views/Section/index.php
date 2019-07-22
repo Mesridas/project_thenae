@@ -1,7 +1,7 @@
 <?php
-   foreach($sections as $section){
+   foreach($sections as $id => $section){
 
-    if(($section->getId() % 2) == 0 ){
+    if(($id % 2) == 0 ){
 ?>
 
     <section class="mh-100">

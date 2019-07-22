@@ -74,35 +74,16 @@ class AdminController {
 
     private function landingConnection(){
 
-        #GERER AFFICHAGE MESSAGE ERREUR CONNECTION        
-        // if(isset($_GET['_err'])){
+        # Check  if user already connected in session and give him access to the dashboard else redirect to login form
+        if(empty($_SESSION[APP_TAG]['connected'])){
 
-        //     switch($_GET['_err']){
-        //         case '403' :
-        //         echo '<div class="notification is-warning">Vous devez vous connecter ! </div>';
-        //         break;
-        //         case 'empty':
-        //         if(isset($_GET['field'])){
-        //                 switch($_GET['field']){
-        //                     case 'login' :
-        //                     echo '<div class="notification is-warning">Vous devez saisir un login ! </div>';
-        //                     break;
-        //                     case 'pwd' :
-        //                     echo '<div class="notification is-warning">Vous devez saisir un mot de passe ! </div>';
-        //                     break;
-        //                     case 'all' :
-        //                     echo '<div class="notification is-warning">Vous devez saisir tous les champs ! </div>';
-        //                     break;
-        //                 }
-        //         }
-        //         break;
-        //         case 'connect':
-        //         echo '<div class="notification is-warning">Mauvais identifiant/mot de passe !</div>';
-        //         break;
-        //     }
-        // }
+            include './Views/Login/index.php';
 
-        include './Views/Login/index.php';
+        }else{
+
+        header('Location:./index.php?ctrl=admin&action=dashboard');
+        exit;
+        }
 
     }
 

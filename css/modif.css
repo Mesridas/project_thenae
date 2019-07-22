@@ -45,7 +45,21 @@ html{
 	}
 }
 
+/* Affichage des messages d'erreurs récupéres en get*/
 
+.errorMsgEvent{
+    margin-top: 7rem;
+    z-index: 9999;
+    text-align : center;
+    margin-bottom:0;
+}
+
+.errorMsg{
+    margin-top: 3rem;
+    z-index: 9999;
+    text-align : center;
+    margin-bottom:0 !important;
+}
 
 /* Landing section image */
 
