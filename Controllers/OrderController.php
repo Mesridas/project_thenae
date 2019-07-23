@@ -24,15 +24,33 @@ class OrderController {
         try{
             
             if(!empty($name) && !empty($email) && !empty($message)){
-                
-                #On vérifie si la personne à déja envoyé un mail => évite de recréer un customer dans la bdd
-                $userExist = $this->_model->check($request); 
 
-                #Si c'est la première fois, alors on l'enregistre dans notre bdd
-                if($userExist == false){
-                    $datas = $this->_model->sendData($request);                    
+                $message = htmlentities($message);
+
+                #REGEX pour vérifier format email
+                if(preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]{3,61}\.[a-z]{0,4}$/', $email)) {
+                    
+                    #REGEX pour longueur pseudo
+                    if(preg_match('/^[a-zA-Z0-9 ._-]{2,31}$/', $name)) {
+
+                        #On vérifie si la personne à déja envoyé un mail => évite de recréer un customer dans la bdd
+                        $userExist = $this->_model->check($request); 
+
+                        #Si c'est la première fois, alors on l'enregistre dans notre bdd
+                        if($userExist == false){
+                            $datas = $this->_model->sendData($request);                    
+                        }else{
+                            $datas = $this->_model->addOrder($request, $userExist);
+                        }
+
+                    }else{
+                        header('Location: ./index.php?ctrl=home&action=index&_err=toolong');
+                    }
+                
                 }else{
-                    $datas = $this->_model->addOrder($request, $userExist);
+
+                    header('Location: ./index.php?ctrl=home&action=index&_err=invalid');
+            
                 }
 
             }
@@ -45,7 +63,7 @@ class OrderController {
                 header('Location: ./index.php?ctrl=home&action=index&contact=error');
             }
     
-          }catch(PDOException $e){
+        }catch(PDOException $e){
     
             throw new Exception($e->getMessage(), 0 , $e);
     

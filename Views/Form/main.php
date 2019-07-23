@@ -6,7 +6,7 @@
 
 <div class="column columns is-10 is-multiline">
 
-<div class="tile is-ancestor">
+<div class="tile is-ancestor orderClient">
     <div class="tile is-2 is-vertical is-parent">
         <button class="tile is-child box <?php if($_GET['action'] = 'manageForm'){ echo 'notification is-primary';} ?>" value="1">En attente</button>
         <button class="tile is-child box" value="2">En cours</button>

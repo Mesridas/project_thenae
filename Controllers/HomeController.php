@@ -39,7 +39,6 @@ class HomeController {
             $event = new Events($datas);
             $nav = 'eventon';
             include './vendor/inc/navbar_event.php'; 
-            require_once 'config/errormanager.php'; 
 
         }else{
 
@@ -47,7 +46,7 @@ class HomeController {
             include './vendor/inc/navbar.php';            
         }
 
-        // require_once 'config/errormanager.php'; 
+        require_once 'config/errormanager.php'; 
     }
 
     private function landing(){

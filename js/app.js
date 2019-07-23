@@ -14,7 +14,7 @@ $(document).ready(function(){
         $('#orderMessage').fadeIn(1000);
 
         $('#stateorder').empty().hide();      
-        // $('#stateorder').fadeIn(2000);
+
 
         // Affiche les commandes selon leur statut (en cours, achevées, en attente)
         $.ajax({
@@ -33,7 +33,6 @@ $(document).ready(function(){
         
     });
     
-    // var idStatut = ($('button').val()); 
 
     $(document).on('click', '.selectedOrder', function(){ 
 
@@ -43,29 +42,7 @@ $(document).ready(function(){
         $('.selectedOrder').removeClass("notification");    
         $(this).addClass("notification is-primary");
 
-        // changer les buttons pour modifier l'order de status
-
-        // requête initiale 
-        // $.ajax({
-        //     url : "index.php",
-        //     type : 'GET',
-        //     data : 'is_ajax=true&ctrl=order&action=getMessageFromOrder&params=' + idOrder,
-        //     dataType : 'html',
-        //     success : function(data){
-        //         $('#orderMessage').empty().hide();
-        //         $('#orderMessage').append(data);
-        //         $('#orderMessage').fadeIn(2000);
-               
-        //     }
-        //     // error : function(result, state, error){
-
-        //     // }
-
-        // })
-
-        // requête test pour json
-        console.log(idOrder);
-        
+        // requête test pour json        
         $.ajax({
             url : "index.php",
             type : 'GET',

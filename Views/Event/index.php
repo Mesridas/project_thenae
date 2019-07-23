@@ -13,6 +13,7 @@
     <tr>
       <th><abbr title="id">#</abbr></th>
       <th><abbr title="Content">Contenu</abbr></th>
+      <th></th>
     </tr>
   </thead>
 

@@ -38,7 +38,7 @@ class AdminController {
     }
 
     public function manageCarousel($id){   
-        self::carousel($id);
+        self::carouselbis($id);
     }
 
     public function manageCategorie(){
@@ -104,8 +104,6 @@ class AdminController {
 
                                 $user = new Login($userCheck);
 
-
-
                                 if($user){
                                     
                                     $_SESSION[APP_TAG]['connected'] = serialize($user);
@@ -116,6 +114,7 @@ class AdminController {
                                     header('Location: ./index.php?ctrl=admin&action=login');
                                     exit;
                                 }
+                                
                             }else{
                                 header('Location: ./index.php?ctrl=admin&action=login');
                                 exit;
@@ -245,9 +244,6 @@ class AdminController {
         try{
 
             $pagination = PAGINATION;
-            // if(!empty($_REQUEST['pagination']) && ctype_digit($_REQUEST['pagination'])) {
-            //   $pagination = $_REQUEST['pagination'];
-            // }
 
             $currentPage = 1;
             if(!empty($_GET['page']) && ctype_digit($_GET['page'])) {
@@ -304,6 +300,53 @@ class AdminController {
 
             $this->_model = new CarouselsModel;
             $datas = $this->_model->readAllFromCat($id);
+            $carousels = [];
+
+            if(count($datas) > 0 ){
+                foreach ($datas as $data) {
+                  $carousels[] = new Carousels($data);
+                }
+            }
+
+            $this->_model = new CategoriesModel;
+            $datas = $this->_model->readAll();
+            $categories = [];
+
+            if(count($datas) > 0 ){
+
+                foreach ($datas as $data) {
+                $categories[] = new Categories($data);
+                }
+
+            }
+
+            include './Views/Carousel/list.php';
+
+        }catch(PDOException $e){
+ 
+        throw new Exception($e->getMessage(), 0 , $e);
+        }
+
+    }
+
+    private function carouselbis($id){
+
+        $page = 'categorie';
+
+        try{
+
+            $pagination = PAGINATION;
+
+            $currentPage = 1;
+            if(!empty($_GET['page']) && ctype_digit($_GET['page'])) {
+              $currentPage = $_GET['page'];
+            }
+
+            $limit = $pagination*($currentPage-1);            
+
+            $this->_model = new CarouselsModel;
+            // $datas = $this->_model->readAllFromCat($id);
+            $datas = $this->_model->readAllFromCatPagination($id, $limit, $pagination);
             $carousels = [];
 
             if(count($datas) > 0 ){

@@ -122,6 +122,35 @@
 
         }
 
+        public function readAllFromCatPagination(int $id, int $limit = 0, int $pagination){
+
+            try{
+
+                $query = 'SELECT `car_id` AS `id`, `car_image` AS `image`, `car_title` AS `title`, `car_location` AS `location`, `car_type_img` AS `type_img`, `car_categorie_id` AS `categorie_id`, `cat_id`, `cat_name` AS `categorie_name`, (SELECT COUNT(`car_id`)  FROM `CAROUSEL` LEFT JOIN `CATEGORIES` ON `car_categorie_id` = cat_id WHERE `car_type_img` = 1 AND `car_categorie_id` = :id_cat) AS `nbImages`
+                FROM `CAROUSEL` 
+                LEFT JOIN `CATEGORIES` ON `car_categorie_id` = cat_id
+                WHERE `car_type_img` = 1 AND `car_categorie_id` = :id_cat
+                ORDER BY `car_id` ASC LIMIT :limit, :pagination';
+
+                if(($this->_req = $this->getDb()->prepare($query)) !== false ){
+
+                    if($this->_req->bindValue('id_cat', $id, PDO::PARAM_INT) && $this->_req->bindValue('limit', $limit, PDO::PARAM_INT) && $this->_req->bindValue('pagination', $pagination, PDO::PARAM_INT)){
+
+                        if($this->_req->execute()){
+                            $datas = $this->_req->fetchAll(PDO::FETCH_ASSOC);
+                            return $datas;
+                        }
+                    }   
+                }
+
+                return false;
+
+            }catch(PDOException $e){
+                throw new Exception($e->getMessage(), 1, $e);
+            }
+
+        }
+
         public function readInvisible(){
 
             try{
@@ -242,7 +271,6 @@
         }
 
         public function addDetails($request, $files){
-
 
             try{
 

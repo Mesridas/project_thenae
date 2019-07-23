@@ -10,6 +10,7 @@ class Carousels {
     private $_image; // nom de l'image
     private $_categorie_id;// 
     private $_categorie_name;// nom de la categorie
+    private $_nbImages; // Nombre d'images du carousel, sert pour la pagination
   
   
     #####//////##### MAGIC METHOD #####//////##### 
@@ -48,7 +49,11 @@ class Carousels {
     public function getCategorie_name(){
       return $this->_categorie_name;
     }
-  
+ 
+    public function getNbImages(){
+      return $this->_nbImages;
+  } 
+
     #####//////##### SETTERS #####//////##### 
   
     public function setId($id){
@@ -81,7 +86,11 @@ class Carousels {
       $this->_categorie_name = $categorieName;
       return $this;
     }
-  
+    
+    public function setNbImages($image_number){
+      $this->_nbImages = $image_number;
+      return $this;
+  }
   
     #####//////##### METHOD #####//////##### 
   

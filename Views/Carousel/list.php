@@ -15,6 +15,8 @@
       <th>Titre de la catégorie</th>
       <th><abbr title="Content">Description de l'image</abbr></th>
       <th><abbr title="Image">Image</abbr></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -23,7 +25,7 @@
     foreach($carousels as $carousel){
   ?>
         <tr>
-        <th><?php #echo $carousel->getId()?></th>
+        <th></th>
         <td><?php echo $carousel->getCategorie_name()?></td>
         <td><?php echo $carousel->getTitle()?></td>
         <td><figure class="image is-48x48">
@@ -36,7 +38,26 @@
     }
     ?> 
   </tbody>
-</table>  
+</table> 
+<?php 
+    // Calcul pour pagination et affichage du nombre de pages
+    $pagesTotales = ceil($carousel->getNbImages()/$pagination);
+
+    for($i = 1; $i <= $pagesTotales; $i++){
+
+        if( $i == $currentPage){
+        echo '['.$i.']';
+        }else {
+        echo '<a href="index.php?ctrl=admin&action=manageCarousel&id='.$carousel->getCategorie_id().'&page='.$i.'">'.$i.'</a>';
+        }
+    }
+?>
+    <nav class="pagination is-centered" >
+        <!--Permet de disabled le bouton page précédente ou suivante s'il n'y a pas de pages avant ou après   -->
+    <a href="index.php?ctrl=admin&action=manageCarousel&id=<?php echo $carousel->getCategorie_id()?>&page=<?php echo $currentPage - 1;?>" class="pagination-previous" <?php echo $currentPage > 1 ? '' : 'disabled' ?>>Page précédente</a>
+
+    <a href="index.php?ctrl=admin&action=manageCarousel&id=<?php echo $carousel->getCategorie_id()?>&page=<?php echo $currentPage + 1;?>" class="pagination-next" <?php echo $pagesTotales > $currentPage ? '' : 'disabled'?> >Page suivante</a>
+    </nav> 
 </div>
 <br>
 <div class="column is-full">

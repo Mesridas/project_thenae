@@ -38,8 +38,8 @@ if(isset($_GET['logout'])){
 
 ############ ROUTEUR ##############
 
-#Condition pour afficher le site et l'accès à l'espace admin + sa connexion et empêcher tous les utilisateurs non connecté d'acceder au panel admin
-if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminController' && $method === 'login') || ($ctrl === 'AdminController' && $method ==='check')){
+#Condition pour afficher le site et l'accès à l'espace admin + envoi commande + sa connexion et empêcher tous les utilisateurs non connecté d'acceder au panel admin
+if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminController' && $method === 'login') || ($ctrl === 'AdminController' && $method ==='check') || ($ctrl === 'OrderController' && $method ==='store')){
 
   // try {
     

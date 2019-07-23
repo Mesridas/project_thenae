@@ -144,6 +144,7 @@ INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(1, 'Super Admin',
 INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(2, 'Admin', 10);
 INSERT INTO `ROLES` (`rol_id`, `rol_name`, `rol_power`) VALUES(3, 'Modérateur', 20);
 
-INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(1,'su', '1234', 1);
-INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(2,'armelle', '1234', 2);
-INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(3,'test', '1234', 3);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(1,'su', PASSWORD('1234'), 1);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(2,'armelle', PASSWORD('1234'), 2);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(3,'test', PASSWORD('1234'), 3);
+INSERT INTO `USERS` (`use_id`, `use_login`, `use_pwd`, `use_role_fk`) VALUES(4,'bibi', PASSWORD('1234'), 1);

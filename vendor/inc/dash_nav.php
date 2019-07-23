@@ -1,4 +1,4 @@
-<aside class="column is-2 is-fullheight section has-background-white">
+<aside class="column is-2 is-fullheight section has-background-white dash">
         <p class="has-text-link is-one-quarter">Thenae</p>
           <p class="menu-label">
           General

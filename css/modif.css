@@ -14,6 +14,12 @@ html{
     height: 2rem;
 }
 
+/* Admin nav bar */
+
+.dash{
+    min-height: 100vh;
+}
+
 /*Event section in nav bar */
 .visual-aid {
 
@@ -79,10 +85,6 @@ header.masthead .bg-circle-1{
 }
 
 /* Formulaire de contact  */
-    /* Bouton icone form contact  */
-     /* .contact100-btn-show{
-        position: absolute;
-    } */
 
      .container-contact100{
         min-height: 50vh;
@@ -100,6 +102,14 @@ header.masthead .bg-circle-1{
     .unsetgallery{
         display: none;
     }
+
+
+/* Order client */
+
+.orderClient{
+    max-height: 100vh;
+    margin: 1rem 1rem !important;
+}
 
 /* Footer  */
 

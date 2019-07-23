@@ -54,7 +54,7 @@
           
                 if(($this->_req = $this->getDb()->prepare($query)) !== false){
           
-                    if($this->_req->bindValue('email', $request['email'])){
+                    if($this->_req->bindValue('email', $request['email'], PDO::PARAM_STR)){
           
                         if($this->_req->execute()){
           
@@ -79,7 +79,7 @@
                 $query = 'INSERT INTO `ORDERS`( `ord_content`, `ord_statut`, `ord_customer_fk`) VALUES ( :content, 1, :id ) ';
                 if( ($this->_req = $this->getDb()->prepare($query)) !== false ){
         
-                    if($this->_req->bindValue('content', $content['message']) && $this->_req->bindValue('id', $id['cus_id'])){ 
+                    if($this->_req->bindValue('content',htmlentities($content['message']), PDO::PARAM_STR) && $this->_req->bindValue('id', $id['cus_id'], PDO::PARAM_INT)){ 
         
                         if($this->_req->execute()) {
             
@@ -201,7 +201,7 @@
 
 
 
-        public function update($params, $id){
+        public function update( int $params, int $id){
 
             try {
 
@@ -210,7 +210,7 @@
                 if(($req = $this->getDb()->prepare($query))!==false) {
          
                  if($req->bindValue('id', $id, PDO::PARAM_INT) && 
-                 $req->bindValue('newstate', $params)) {
+                 $req->bindValue('newstate', $params, PDO::PARAM_INT)) {
                        if($req->execute()) {
                          $res = $req->rowCount();
                          $req->closeCursor();
