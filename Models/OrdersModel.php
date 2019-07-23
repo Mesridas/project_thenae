@@ -4,7 +4,7 @@
 
         private $_req;
 
-        public function sendData($request){
+        public function sendData(array $request){
 
             try{
 
@@ -46,7 +46,7 @@
             }
         }
        
-        public function check($request){
+        public function check(array $request){
 
             try{
 
@@ -72,7 +72,7 @@
               }
         }
 
-        public function addOrder($content, $id){
+        public function addOrder(array $content, array $id){
 
             try{
        
@@ -101,7 +101,7 @@
         }
 
 
-        public function readOrdersby($status){
+        public function readOrdersby(int $status){
 
             try{
 
@@ -134,7 +134,7 @@
             }
         }
 
-        public function readOrderFrom($order_id){
+        public function readOrderFrom( int $order_id){
 
             try{
 
@@ -167,7 +167,7 @@
             }
         }
 
-        public function readMessageFrom($idOrder){
+        public function readMessageFrom(int $idOrder){
 
             try{
 
@@ -226,7 +226,7 @@
         
         }
 
-        public function delete($id){
+        public function delete(int $id){
 
             try {
 

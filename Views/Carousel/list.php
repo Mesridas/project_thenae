@@ -41,16 +41,19 @@
 </table> 
 <?php 
     // Calcul pour pagination et affichage du nombre de pages
-    $pagesTotales = ceil($carousel->getNbImages()/$pagination);
+    if(!empty($carousels)){
 
-    for($i = 1; $i <= $pagesTotales; $i++){
+        $pagesTotales = ceil($carousel->getNbImages()/$pagination);        
 
-        if( $i == $currentPage){
-        echo '['.$i.']';
-        }else {
-        echo '<a href="index.php?ctrl=admin&action=manageCarousel&id='.$carousel->getCategorie_id().'&page='.$i.'">'.$i.'</a>';
+        for($i = 1; $i <= $pagesTotales; $i++){
+
+            if( $i == $currentPage){
+            echo '['.$i.']';
+            }else {
+            echo '<a href="index.php?ctrl=admin&action=manageCarousel&id='.$carousel->getCategorie_id().'&page='.$i.'">'.$i.'</a>';
+            }
         }
-    }
+      
 ?>
     <nav class="pagination is-centered" >
         <!--Permet de disabled le bouton page précédente ou suivante s'il n'y a pas de pages avant ou après   -->
@@ -58,6 +61,7 @@
 
     <a href="index.php?ctrl=admin&action=manageCarousel&id=<?php echo $carousel->getCategorie_id()?>&page=<?php echo $currentPage + 1;?>" class="pagination-next" <?php echo $pagesTotales > $currentPage ? '' : 'disabled'?> >Page suivante</a>
     </nav> 
+<?php } ?>    
 </div>
 <br>
 <div class="column is-full">

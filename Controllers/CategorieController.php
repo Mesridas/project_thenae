@@ -19,31 +19,31 @@ class CategorieController {
 
 
     public function index(){
-        try{
+        // try{
 
-            $datas = $this->_model->readAll();
-            $categories = [];
-
-
-            if(count($datas) > 0 ){
-
-                foreach ($datas as $data) {
-                $categories[] = new Gategories($data);
-                }
-
-            }
+        //     $datas = $this->_model->readAll();
+        //     $categories = [];
 
 
+        //     if(count($datas) > 0 ){
 
-        }catch(PDOException $e){
+        //         foreach ($datas as $data) {
+        //         $categories[] = new Gategories($data);
+        //         }
+
+        //     }
+
+        // }catch(PDOException $e){
  
-        throw new Exception($e->getMessage(), 0 , $e);
-        }
+        // throw new Exception($e->getMessage(), 0 , $e);
+        // }
     }
 
-    public function add($request){
+    public function add(array $request){
 
-        if(!empty($request['title_cat'])){
+        if(!empty($request['title_cat']) && is_string($request['title_cat'])){
+
+            htmlentities($request);
 
             $idCat = $this->_model->add($request['title_cat']);
 
@@ -76,7 +76,7 @@ class CategorieController {
 
     
 
-    public function delete($id){
+    public function delete(int $id){
 
         
                 try{
@@ -97,7 +97,7 @@ class CategorieController {
             
     }
 
-    public function edit($id){
+    public function edit(int $id){
 
         $page = 'categorie';
 
@@ -117,11 +117,11 @@ class CategorieController {
 
     }
     
-    public function update($id, $request){
+    public function update(int $id, array $request){
        
         try{
            
-            if(empty($request['title_cat'])){
+            if(empty($request['title_cat']) && is_string($request['title_cat'])){
 
                 $datas = $this->_model->readOne($id);
 

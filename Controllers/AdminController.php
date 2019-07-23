@@ -21,7 +21,7 @@ class AdminController {
         self::landingConnection();
     }
 
-    public function check($post){
+    public function check(array $post){
         self::userConnect($post);
     }
 
@@ -34,18 +34,18 @@ class AdminController {
     }
 
     public function manageGalerie(){
-        self::galeriebis();
+        self::galerie();
     }
 
-    public function manageCarousel($id){   
-        self::carouselbis($id);
+    public function manageCarousel(int $id){   
+        self::carousel($id);
     }
 
     public function manageCategorie(){
         self::categorie();    
     }
 
-    public function manageForm($status){
+    public function manageForm(int $status){
         self::formulaire($status);
     }
 
@@ -53,20 +53,15 @@ class AdminController {
         self::evenement();     
     }
 
-    public function editSection($id){
+    public function editSection(int $id){
         self::edit($id); 
     }
 
-    public function editGalerie($id){
+    public function editGalerie(int $id){
         self::modify($id);
     }
 
-    // public function editCategorie($id){
-    //     // self::change($id);
-    //     self::carousel($id);
-    // }
-
-    public function deleteGalerie($id){
+    public function deleteGalerie(int $id){
         // $ModelName = 'Galleries';
         self::delete($id);
         // self::delete($id, $ModelName);
@@ -87,12 +82,14 @@ class AdminController {
 
     }
 
-    private function userConnect($post){
+    private function userConnect( array $post){
         try{
 
             $this->_model = new LoginModel;
             
             extract($post);
+
+            htmlentities($post);
 
             if(empty($_SESSION[APP_TAG]['connected'])){
 
@@ -172,7 +169,7 @@ class AdminController {
 
     }
 
-    private function edit($id){
+    private function edit(int $id){
 
         $page = 'section';
         try{
@@ -192,7 +189,7 @@ class AdminController {
         
     }
 
-    private function modify($id){
+    private function modify(int $id){
 
         $page = 'galerie';
         try{
@@ -212,32 +209,7 @@ class AdminController {
 
     }
 
-
     private function galerie(){
-
-        $page = 'galerie';
-
-        try{
-
-            $this->_model = new GalleriesModel;
-            $datas = $this->_model->readAllAdmin();
-            $galeries = [];
-
-            if(count($datas) > 0 ){
-                foreach ($datas as $data) {
-                  $galeries[] = new Galleries($data);
-                }
-            }
-
-            include './Views/Gallery/main.php';
-
-        }catch(PDOException $e){
- 
-        throw new Exception($e->getMessage(), 0 , $e);
-        }
-    }
-
-    private function galeriebis(){
 
         $page = 'galerie';
 
@@ -271,7 +243,7 @@ class AdminController {
     }
 
 
-    private function delete($id){
+    private function delete(int $id){
 
         try{
             
@@ -292,44 +264,7 @@ class AdminController {
 
     }
 
-    private function carousel($id){
-
-        $page = 'categorie';
-
-        try{
-
-            $this->_model = new CarouselsModel;
-            $datas = $this->_model->readAllFromCat($id);
-            $carousels = [];
-
-            if(count($datas) > 0 ){
-                foreach ($datas as $data) {
-                  $carousels[] = new Carousels($data);
-                }
-            }
-
-            $this->_model = new CategoriesModel;
-            $datas = $this->_model->readAll();
-            $categories = [];
-
-            if(count($datas) > 0 ){
-
-                foreach ($datas as $data) {
-                $categories[] = new Categories($data);
-                }
-
-            }
-
-            include './Views/Carousel/list.php';
-
-        }catch(PDOException $e){
- 
-        throw new Exception($e->getMessage(), 0 , $e);
-        }
-
-    }
-
-    private function carouselbis($id){
+    private function carousel(int $id){
 
         $page = 'categorie';
 
@@ -404,7 +339,7 @@ class AdminController {
     }
 
 
-    private function formulaire($status){
+    private function formulaire(int $status){
 
         $page = 'formulaire';
 

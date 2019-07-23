@@ -18,14 +18,15 @@ class OrderController {
     }
 
     
-    public function store($request){
+    public function store(array $request){
 
         extract($request);
         try{
             
             if(!empty($name) && !empty($email) && !empty($message)){
 
-                $message = htmlentities($message);
+                #J'empêche une injection SQL
+                htmlentities($message);
 
                 #REGEX pour vérifier format email
                 if(preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]{3,61}\.[a-z]{0,4}$/', $email)) {
@@ -67,11 +68,11 @@ class OrderController {
     
             throw new Exception($e->getMessage(), 0 , $e);
     
-          }
+        }
 
     }
 
-    public function getLastOrdersBy($statut){
+    public function getLastOrdersBy(int $statut){
     
         try{
             
@@ -106,7 +107,7 @@ class OrderController {
     }
     
 
-    public function getMessageFromOrder($order_id){
+    public function getMessageFromOrder(int $order_id){
 
         try{
             
@@ -131,7 +132,7 @@ class OrderController {
     }
 
     // Renvoie un objet json avec tous le détail de la commande
-    public function getObjectFromOrder($order_id){
+    public function getObjectFromOrder(int $order_id){
 
         $order_id = $_GET['params'];
         try{
@@ -140,10 +141,6 @@ class OrderController {
         
             return $result = json_encode($orderData);
 
-            // var_dump($result);
-
-        //    return $result ;
-    
         }catch(PDOException $e){
     
             throw new Exception($e->getMessage(), 0 , $e);
@@ -152,7 +149,7 @@ class OrderController {
     }
 
 
-    public function updateStatut($id){
+    public function updateStatut(int $id){
 
         $params = $_GET['params'];
 
@@ -172,7 +169,7 @@ class OrderController {
 
     }
 
-    public function delete($id){
+    public function delete(int $id){
 
 
         try{

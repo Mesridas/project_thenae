@@ -39,9 +39,9 @@ class EventController {
     }
 
 
-    public function add($request){
+    public function add(array $request){
 
-        if(!empty($request)){
+        if(!empty($request) && is_string($request['desc'])){
 
             $newEvent = $this->_model->add($request);
 
@@ -60,7 +60,7 @@ class EventController {
 
     }
     
-    public function delete($id){
+    public function delete(int $id){
 
         try{
 

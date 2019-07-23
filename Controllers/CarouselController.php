@@ -19,32 +19,32 @@ class CarouselController {
 
 
     public function index(){
-        try{
+        // try{
 
-            $datas = $this->_model->readAll();
-            $carousels = [];
-            // echo '<pre>'; var_dump($datas); '</pre>';
-            if(count($datas) > 0 ){
-                #Je crée un tableau qui contiendra un tableau pour chaque titre (catégorie de carousel) qui lui même contient toutes les images associés à ce titre (catégorie).
-                // foreach ($datas as $data) {
+        //     $datas = $this->_model->readAll();
+        //     $carousels = [];
 
-                // $carousels[$data['title_carousel']][] = new Carousels($data);
+        //     if(count($datas) > 0 ){
+        //         #Je crée un tableau qui contiendra un tableau pour chaque titre (catégorie de carousel) qui lui même contient toutes les images associés à ce titre (catégorie).
+        //         // foreach ($datas as $data) {
+
+        //         // $carousels[$data['title_carousel']][] = new Carousels($data);
                
-                // }
+        //         // }
 
-            }
+        //     }
 
-        // include './Views/Carousel/index.php';
+        // // include './Views/Carousel/index.php';
 
-        }catch(PDOException $e){
+        // }catch(PDOException $e){
  
-        throw new Exception($e->getMessage(), 0 , $e);
-        }
+        // throw new Exception($e->getMessage(), 0 , $e);
+        // }
     }
 
 
     #Fonction pour ajouter une image principale pour un carousel
-    public function add($request){
+    public function add(array $request){
 
         #Fonction qui génére un id unique
         function uniqidReal($lenght = 13) {
@@ -61,7 +61,7 @@ class CarouselController {
 
         try{        
             
-            if(!empty($_FILES) && !empty($request)){
+            if(!empty($_FILES) && !empty($request) && is_string($request['desc'])){
     
                 $files = $_FILES['mon_image_principale'];
                 $files['name'] = basename($files['name']);
@@ -77,6 +77,7 @@ class CarouselController {
                 #On génère une location (data-lightbox) unique pour l'image principale (qu'on reprendra pour les images détails)
                 $request['location'] = uniqidReal();
 
+                htmlentities($request);
 
                 #Je l'envoi en bdd
                     $idCarousel = $this->_model->add($request, $files);
@@ -102,9 +103,9 @@ class CarouselController {
     }
 
     
-
-    #Function pour voir les images rattachés à l'image principale
-    public function manageMe($id){
+ 
+    #Fonction pour voir les images rattachés à l'image principale
+    public function manageMe(int $id){
 
         $page = 'categorie';
 
@@ -135,7 +136,7 @@ class CarouselController {
 
 
     #Function qui supprime l'image principale
-    public function deleteMe($id){
+    public function deleteMe(int $id){
 
         try{
 
@@ -156,7 +157,7 @@ class CarouselController {
 
 
     #Function qui supprime l'image détaillé
-    public function deleteDetails($id, $request){
+    public function deleteDetails(int $id, array $request){
 
         try{
 
@@ -184,8 +185,8 @@ class CarouselController {
 
 
 
-    #Fonction pour ajouter une image principale pour un carousel
-    public function addDetails($id, $request){
+    #Fonction pour ajouter une image détaillé à une image principale
+    public function addDetails(int $id, array $request){
 
         try{        
             
@@ -195,7 +196,7 @@ class CarouselController {
             }
 
 
-            if(!empty($_FILES) && !empty($request)){
+            if(!empty($_FILES) && !empty($request) && is_string($request['desc'])){
     
                 $files = $_FILES['mon_image_details'];
                 $files['name'] = basename($files['name']);
@@ -210,15 +211,16 @@ class CarouselController {
                 }
                 
                 
-                // #Je stocke l'image dans le dossier
+                #Je stocke l'image dans le dossier
                 if(in_array($ext, $allow_ext)){
 
                     $folder = './img/carousels/invisible/'.$request['cat_number'];
                     $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
+                
 
-
-
-                #Je l'envoi en bdd
+                    htmlentities($request);        
+                
+                    #Je l'envoi en bdd
                     $idCarousel = $this->_model->addDetails($request, $files);
 
                 }else{
