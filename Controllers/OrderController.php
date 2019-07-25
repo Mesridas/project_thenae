@@ -26,7 +26,7 @@ class OrderController {
             if(!empty($name) && !empty($email) && !empty($message)){
 
                 #J'empêche une injection SQL
-                htmlentities($message);
+                $request['message'] = htmlentities($message);
 
                 #REGEX pour vérifier format email
                 if(preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9]{3,61}\.[a-z]{0,4}$/', $email)) {
