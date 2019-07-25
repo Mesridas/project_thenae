@@ -24,7 +24,8 @@
         
                 }
 
-                $query2 = 'INSERT INTO `ORDERS`( `ord_content`, `ord_statut`, `ord_customer_fk`) VALUES ( :content, 1, '.$this->getDb()->lastInsertId().' ) ';
+                // $query2 = 'INSERT INTO `ORDERS`( `ord_content`, `ord_statut`, `ord_customer_fk`) VALUES ( :content, 1, '.$this->getDb()->lastInsertId().' ) ';
+                $query2 = 'INSERT INTO `ORDERS`( `ord_content`, `ord_statut`, `ord_customer_fk`) VALUES ( :content, 1, '.$res1.' ) ';
                 if( ($this->_req = $this->getDb()->prepare($query2)) !== false ){
         
                     if($this->_req->bindValue('content', $request['message'])){ 

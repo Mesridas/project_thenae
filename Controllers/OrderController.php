@@ -134,7 +134,7 @@ class OrderController {
     // Renvoie un objet json avec tous le détail de la commande
     public function getObjectFromOrder(int $order_id){
 
-        $order_id = $_GET['params'];
+        // $order_id = $_GET['params'];
         try{
             
             $orderData = $this->_model->readOrderFrom($order_id);
