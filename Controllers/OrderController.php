@@ -55,8 +55,7 @@ class OrderController {
                 }
 
             }
-            
-
+        
             if($datas){
                 header('Location: ./index.php?ctrl=home&action=index&contact=success');
             }
@@ -69,7 +68,6 @@ class OrderController {
             throw new Exception($e->getMessage(), 0 , $e);
     
         }
-
     }
 
     public function getLastOrdersBy(int $statut){
