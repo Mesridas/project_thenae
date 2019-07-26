@@ -31,7 +31,6 @@ if(isset($_GET['is_ajax']) || isset($_POST['is_ajax'])) {
 ############ DECONNEXION ##########
 
 if(isset($_GET['logout'])){
-    // session_destroy();
     session_unset();
 }
 
