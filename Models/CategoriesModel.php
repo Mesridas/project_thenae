@@ -4,7 +4,7 @@
 
         private $_req;
 
-        public function readOne($id){
+        public function readOne(int $id){
 
             try{
 
@@ -60,7 +60,7 @@
         }
        
 
-        public function add($request){
+        public function add(array $request){
 
 
             try{
@@ -90,7 +90,7 @@
 
         }
 
-        public function delete($id){
+        public function delete(int $id){
 
             try{
       
@@ -121,7 +121,7 @@
         }
 
 
-        public function update($id, $request){
+        public function update(int $id, array $request){
 
             try {
 

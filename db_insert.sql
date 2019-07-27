@@ -2,8 +2,7 @@
 
 -- TRUNCATE TABLE `USERS`;
 
--- INSERT INTO `USERS` (`use_id`,`use_login`,`use_pwd`,`use_role`) VALUES (1, 'su', '1234', 1);
--- INSERT INTO `USERS` (`use_id`,`use_login`,`use_mdp`,`use_role`) VALUES (2, 'armelle', '1234', 2);
+
 
 INSERT INTO `SECTION`(`sec_id`, `sec_image`, `sec_text`, `sec_title`) VALUES (1,"presentation1.jpg","Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.","Des créations originales...");
 

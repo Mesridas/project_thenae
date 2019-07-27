@@ -26,7 +26,7 @@
     }else{
         
 ?>
-    <section id="<?php echo ($section->getId() == 1) ? "start" : " " ; // set scroll on first section ?>" > 
+    <section id="<?php echo ($id == 0) ? "start" : " " ; // set scroll on first section ?>" > 
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">

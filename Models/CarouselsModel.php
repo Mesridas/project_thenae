@@ -4,7 +4,7 @@
 
         private $_req;
 
-        public function readOne($id){
+        public function readOne(int $id){
             try{
 
                        $query = 'SELECT `car_id` AS `id`, `car_image` AS `image`, `car_title` AS `title`, `car_location` AS `location`, `car_type_img` AS `type_img`, `car_categorie_id` AS `categorie_id`, `cat_id`, `cat_name` AS `categorie_name`
@@ -63,7 +63,7 @@
 
         }
 
-        public function readDetails($lightbox){
+        public function readDetails(int $lightbox){
 
             try{
 
@@ -92,7 +92,7 @@
 
         }
 
-        public function readAllFromCat($id){
+        public function readAllFromCat(int $id){
 
             try{
 
@@ -178,7 +178,7 @@
             }
         }
 
-        public function add($request, $files){
+        public function add(array $request, array $files){
 
 
             try{
@@ -214,7 +214,7 @@
         }
 
 
-        public function delete($id){
+        public function delete(int $id){
 
             try{
       
@@ -244,7 +244,7 @@
       
         }
 
-        public function deleteDetails($ids){
+        public function deleteDetails(int $ids){
 
             try{
       
@@ -270,7 +270,7 @@
       
         }
 
-        public function addDetails($request, $files){
+        public function addDetails(array $request, array $files){
 
             try{
 

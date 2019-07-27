@@ -77,16 +77,12 @@ $(document).ready(function(){
                     + "<a id=\"pending\" href=\"index.php?ctrl=order&action=updateStatut&params=2&id="+idOrder+" \"class=\"button is-rounded is-small\">Marquer \"En cours\"</a>"
                     + "<a id=\"achieved\" href=\"index.php?ctrl=order&action=updateStatut&params=3&id="+idOrder+" \"class=\"button is-rounded is-small\">Marquer \"Achevé\"</a>" );
                 }
-                
                 $('#stateorder').fadeIn(2000);      
-               
             },
             error: function(xhr, textStatus, errorThrown){
                 alert('request failed->'+textStatus);
             }
         })
-  
-
     });
 
 

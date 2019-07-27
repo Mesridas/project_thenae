@@ -172,9 +172,6 @@ if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminCont
 
 }
 
-
-
-
 // #############FIN ROUTEUR##########
 
 if (!$is_ajax) {

@@ -11,7 +11,7 @@ class LoginModel extends CoreModel  {
     }
   }
 
-  public function connexion($id, $pwd){
+  public function connexion(string $id, string $pwd){
 
     try{
 

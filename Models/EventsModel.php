@@ -63,7 +63,7 @@
         }
 
 
-        public function add($request){
+        public function add(array $request){
 
             try{
 
@@ -93,7 +93,7 @@
 
         }
 
-        public function delete($id){
+        public function delete(int $id){
 
             try{
       

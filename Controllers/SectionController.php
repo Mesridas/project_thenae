@@ -37,7 +37,7 @@ class SectionController {
         }
     }
 
-    public function add($request){
+    public function add(array $request){
 
         if(!empty($_FILES) && !empty($request)){
 
@@ -87,7 +87,7 @@ class SectionController {
     //     }
     // }
 
-    public function update($id, $request){
+    public function update(int $id, array $request){
 
         try{
             
@@ -154,7 +154,7 @@ class SectionController {
 
     }
 
-    public function delete($id){
+    public function delete(int $id){
 
         try{
 

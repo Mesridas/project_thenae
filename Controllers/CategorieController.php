@@ -129,7 +129,7 @@ class CategorieController {
                 $categorie = new Categories($datas);
                 }
 
-                $request['title_cat']= $galerie->getData_title();
+                $request['title_cat']= $categorie->getData_title();
             }
 
 

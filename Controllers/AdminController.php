@@ -82,14 +82,15 @@ class AdminController {
 
     }
 
-    private function userConnect( array $post){
+    private function userConnect(array $post){
         try{
 
             $this->_model = new LoginModel;
             
             extract($post);
 
-            htmlentities($post);
+            $login = htmlentities($post['login']);
+            $password = htmlentities($post['password']);
 
             if(empty($_SESSION[APP_TAG]['connected'])){
 
@@ -280,7 +281,7 @@ class AdminController {
             $limit = $pagination*($currentPage-1);            
 
             $this->_model = new CarouselsModel;
-            // $datas = $this->_model->readAllFromCat($id);
+            
             $datas = $this->_model->readAllFromCatPagination($id, $limit, $pagination);
             $carousels = [];
 

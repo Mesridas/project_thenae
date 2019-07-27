@@ -19,8 +19,6 @@ class LandingController {
 
     public function index(){
 
-        
-
         include './Views/Landing/index.php';
 
     }

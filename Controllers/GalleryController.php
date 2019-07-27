@@ -38,7 +38,7 @@ class GalleryController {
         }
     }
 
-    public function add($request){
+    public function add(array $request){
 
         if(!empty($_FILES) && !empty($request['title_gal'])){
 
@@ -68,10 +68,11 @@ class GalleryController {
                 header('Location: ./index.php?ctrl=admin&action=manageGalerie&addGalerie=error');
             }
         }
+        
     }
 
 
-    public function update($id, $request){
+    public function update(int $id, array $request){
        
         try{
             $files = $_FILES['mon_image_galerie_edit'];
