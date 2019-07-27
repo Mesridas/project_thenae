@@ -2,7 +2,7 @@
     <div class="col">
       <div class="container row">
         <div class="row col-12">
-          <a class="navbar-brand" href="#">Thénaë Créations</a>
+          <a class="navbar-brand" href="index.php?ctrl=home&action=index">Thénaë Créations</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

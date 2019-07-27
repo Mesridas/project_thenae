@@ -1,10 +1,9 @@
 <?php
    foreach($sections as $id => $section){
-
     if(($id % 2) == 0 ){
 ?>
 
-    <section class="mh-100">
+    <section class="mh-100"  id="<?php echo ($id == 0) ? "start" : " " ; // set scroll on first section ?>">
         <div class="container">
             <div class="row align-items-center">
             <div class="col-lg-6 order-lg-2">
@@ -26,7 +25,7 @@
     }else{
         
 ?>
-    <section id="<?php echo ($id == 0) ? "start" : " " ; // set scroll on first section ?>" > 
+    <section> 
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
