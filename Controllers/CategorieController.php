@@ -45,7 +45,6 @@ class CategorieController {
 
             $request['title_cat'] = htmlentities($request['title_cat']);
 
-
             $idCat = $this->_model->add($request['title_cat']);
 
             #On va créer un dossier avec la catégorie de l'id si le dossier n'existe pas déjà

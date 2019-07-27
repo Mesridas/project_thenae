@@ -5,7 +5,7 @@
 ?>
     <h3 class="m-l-50 my-5 text-center"><?php echo $value[0]->getCategorie_name() ?></h3>
       <section class="container text-center"> 
-        <div id="<?php echo $value[0]->getCategorie_name() ?>" class="carousel slide" data-ride="carousel">
+        <div id="<?php echo $value[0]->getLocation() ?>" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
 <?php
               $i = 0;
@@ -28,11 +28,11 @@
               
 ?>   
             </div>
-            <a class="carousel-control-prev" href="#<?php echo $value[0]->getCategorie_name() ?>" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#<?php echo $value[0]->getLocation() ?>" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             
-            <a class="carousel-control-next" href="#<?php echo $value[0]->getCategorie_name() ?>" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#<?php echo $value[0]->getLocation() ?>" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
