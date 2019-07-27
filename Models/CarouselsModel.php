@@ -63,7 +63,7 @@
 
         }
 
-        public function readDetails(int $lightbox){
+        public function readDetails(string $lightbox){
 
             try{
 
@@ -244,7 +244,7 @@
       
         }
 
-        public function deleteDetails(int $ids){
+        public function deleteDetails(string $ids){
 
             try{
       

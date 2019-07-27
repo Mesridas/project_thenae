@@ -43,7 +43,8 @@ class CategorieController {
 
         if(!empty($request['title_cat']) && is_string($request['title_cat'])){
 
-            htmlentities($request);
+            $request['title_cat'] = htmlentities($request['title_cat']);
+            
 
             $idCat = $this->_model->add($request['title_cat']);
 

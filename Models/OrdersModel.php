@@ -80,7 +80,7 @@
                 $query = 'INSERT INTO `ORDERS`( `ord_content`, `ord_statut`, `ord_customer_fk`) VALUES ( :content, 1, :id ) ';
                 if( ($this->_req = $this->getDb()->prepare($query)) !== false ){
         
-                    if($this->_req->bindValue('content',htmlentities($content['message']), PDO::PARAM_STR) && $this->_req->bindValue('id', $id['cus_id'], PDO::PARAM_INT)){ 
+                    if($this->_req->bindValue('content', $content['message'], PDO::PARAM_STR) && $this->_req->bindValue('id', $id['cus_id'], PDO::PARAM_INT)){ 
         
                         if($this->_req->execute()) {
             

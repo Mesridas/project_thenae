@@ -60,7 +60,7 @@
         }
        
 
-        public function add(array $request){
+        public function add(string $request){
 
 
             try{
