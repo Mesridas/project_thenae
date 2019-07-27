@@ -6,7 +6,7 @@
 
 
         #method which reads one asked section
-        public function readOne($id){
+        public function readOne(int $id){
 
             try{
 
@@ -69,8 +69,10 @@
         }
 
 
-        public function add($request, $files){
-
+        public function add(array $request, array $files){
+            
+          $request['desc'] = htmlentities($request['desc']);
+          $request['title'] = htmlentities($request['title']);
 
             try{
 
@@ -103,7 +105,10 @@
 
         }
 
-        public function update($id, $request,$files){
+        public function update(int $id, array $request, string $files){
+
+          $request['desc'] = htmlentities($request['desc']);
+          $request['title'] = htmlentities($request['title']);
 
             try {
 
@@ -130,7 +135,7 @@
 
 
 
-        public function delete($id){
+        public function delete(int $id){
 
             try{
       
