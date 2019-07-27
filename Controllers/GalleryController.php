@@ -40,6 +40,9 @@ class GalleryController {
 
     public function add(array $request){
 
+        #J'empêche une injection SQL
+        $request['title_gal'] = htmlentities($request['title_gal']);
+
         if(!empty($_FILES) && !empty($request['title_gal'])){
 
  
@@ -75,6 +78,9 @@ class GalleryController {
     public function update(int $id, array $request){
        
         try{
+
+            $request['title_gal'] = htmlentities($request['title_gal']);
+
             $files = $_FILES['mon_image_galerie_edit'];
             
             if(empty($request['title_gal'])){
@@ -111,8 +117,9 @@ class GalleryController {
                 }
             }
 
-            $edit = $this->_model->update($id, $request,$files['name']);
+            $edit = $this->_model->update($id, $request['title_gal'], $files['name']);
             
+
             if($edit){
                 header('Location: ./index.php?ctrl=admin&action=manageGalerie&editGalerie=success');
             }else{

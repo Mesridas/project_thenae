@@ -63,7 +63,7 @@
 
         }
 
-        public function readDetails(int $lightbox){
+        public function readDetails(string $lightbox){
 
             try{
 
@@ -182,6 +182,7 @@
 
 
             try{
+                $request['desc'] =  htmlentities($request['desc']); 
 
                 $query = 'INSERT INTO `CAROUSEL`( `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES ( :description, :location, 1, :img, :id_cat) ';
 
@@ -244,7 +245,7 @@
       
         }
 
-        public function deleteDetails(int $ids){
+        public function deleteDetails(string $ids){
 
             try{
       
@@ -274,6 +275,8 @@
 
             try{
 
+                $request['desc'] =  htmlentities($request['desc']); 
+                
                 $query = 'INSERT INTO `CAROUSEL`( `car_title`, `car_location`, `car_type_img`, `car_image`, `car_categorie_id`) VALUES ( :description, :location, 0, :img, :id_cat) ';
 
                 if(($this->_req = $this->getDb()->prepare($query)) !== false){

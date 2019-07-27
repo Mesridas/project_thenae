@@ -28,6 +28,7 @@
                 <img src="img/carousels/visible/<?php echo $carousel->getCategorie_id().'/'.$carousel->getImage() ;?>" >
             </figure></th>
         <?php 
+if(count($img_details) > 0 ){        
         unset($hidden[0]);    
         foreach($hidden as $hide){ 
         ?>            
@@ -40,7 +41,10 @@
                 <input type="checkbox" name="select[]" value="<?php echo $hide->getId()?>">
             </label>
 
-         <?php } ?>  
+         <?php
+          }
+        }
+          ?>  
         </td>               
         <td><button name="submit" class="button is-danger is-small">Supprimer les images cochées</button></td>
         </tr>

@@ -128,7 +128,7 @@
 
         }
 
-        public function add(array $request, array $files){
+        public function add(string $request, array $files){
 
 
             try{
@@ -193,7 +193,7 @@
         }
 
 
-        public function update(int $id, array $request, array $files){
+        public function update(int $id, string $request, string $files){
 
             try {
 
@@ -202,7 +202,7 @@
                 if(($req = $this->getDb()->prepare($query))!==false) {
          
                  if($req->bindValue('id', $id, PDO::PARAM_INT) && $req->bindValue('img', $files) && 
-                 $req->bindValue('title', $request['title_gal'])) {
+                 $req->bindValue('title', $request)) {
                        if($req->execute()) {
                          $res = $req->rowCount();
                          $req->closeCursor();

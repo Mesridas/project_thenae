@@ -25,6 +25,7 @@ class HomeController {
       self::galerie();
       self::carousel();
       self::form();
+      self::footer();
     
     }
 
@@ -150,6 +151,11 @@ class HomeController {
  
         throw new Exception($e->getMessage(), 0 , $e);
         }
+    }
+
+    private function footer(){
+
+            require 'vendor/inc/footer.php'; 
     }
 
 }

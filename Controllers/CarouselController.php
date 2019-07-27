@@ -59,7 +59,8 @@ class CarouselController {
             return substr(bin2hex($bytes), 0, $lenght);
         }
 
-        try{        
+        try{  
+                  
             
             if(!empty($_FILES) && !empty($request) && is_string($request['desc'])){
     
@@ -77,7 +78,7 @@ class CarouselController {
                 #On génère une location (data-lightbox) unique pour l'image principale (qu'on reprendra pour les images détails)
                 $request['location'] = uniqidReal();
 
-                htmlentities($request);
+               $request['desc'] =  htmlentities($request['desc']);
 
                 #Je l'envoi en bdd
                     $idCarousel = $this->_model->add($request, $files);
@@ -205,11 +206,11 @@ class CarouselController {
 
                 $request['location'] = $carousel->getLocation();
                 $request['cat_number'] = $carousel->getCategorie_id();
-                
+                 
+
                 if(empty($request['desc'])){
                     $request['desc'] = $carousel->getTitle();
                 }
-                
                 
                 #Je stocke l'image dans le dossier
                 if(in_array($ext, $allow_ext)){
@@ -217,9 +218,8 @@ class CarouselController {
                     $folder = './img/carousels/invisible/'.$request['cat_number'];
                     $test = move_uploaded_file($files['tmp_name'], $folder.'/'.$files['name']);
                 
-
-                    htmlentities($request);        
-                
+                    $request['desc'] =  htmlentities($request['desc']); 
+                    
                     #Je l'envoi en bdd
                     $idCarousel = $this->_model->addDetails($request, $files);
 

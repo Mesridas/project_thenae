@@ -1,5 +1,5 @@
 <!-- Footer -->
-    <footer class="py-5 bg-black">
+    <footer class="py-4 bg-black">
       <div class="container text-center">
         <a class="navbar-brand" href="index.php?ctrl=admin&action=login"><img src="img/logo2.png" alt="Logo" width="40" height="40"></a>
         <a href="https://www.facebook.com/Th%C3%A9na%C3%AB-Cr%C3%A9ations-318619488566497/" target="_blank" class="fa fa-facebook socialicon"></a>

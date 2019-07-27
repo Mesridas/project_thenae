@@ -174,6 +174,6 @@ if( ($ctrl === 'HomeController' && $method === 'index') || ($ctrl === 'AdminCont
 
 // #############FIN ROUTEUR##########
 
-if (!$is_ajax) {
-  require 'vendor/inc/footer.php'; 
-}
+// if (!$is_ajax) {
+//   require 'vendor/inc/footer.php'; 
+// }

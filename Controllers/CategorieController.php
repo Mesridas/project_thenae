@@ -43,7 +43,8 @@ class CategorieController {
 
         if(!empty($request['title_cat']) && is_string($request['title_cat'])){
 
-            htmlentities($request);
+            $request['title_cat'] = htmlentities($request['title_cat']);
+
 
             $idCat = $this->_model->add($request['title_cat']);
 
@@ -120,8 +121,8 @@ class CategorieController {
     public function update(int $id, array $request){
        
         try{
-           
-            if(empty($request['title_cat']) && is_string($request['title_cat'])){
+
+            if((empty($request['title_cat']) || is_null($request['title_cat'])) && is_string($request['title_cat'])){
 
                 $datas = $this->_model->readOne($id);
 
@@ -129,7 +130,7 @@ class CategorieController {
                 $categorie = new Categories($datas);
                 }
 
-                $request['title_cat']= $categorie->getData_title();
+                $request['title_cat']= $categorie->getName();
             }
 
 

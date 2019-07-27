@@ -41,6 +41,8 @@ class EventController {
 
     public function add(array $request){
 
+        $request['desc'] = htmlentities($request['desc']);
+
         if(!empty($request) && is_string($request['desc'])){
 
             $newEvent = $this->_model->add($request);
